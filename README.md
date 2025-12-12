@@ -1,16 +1,67 @@
-## Hi there 👋
+<div align="center">
+  <img src="assets/logo.png" alt="BananasDev Logo" width="120" />
+  <br />
+  <img src="assets/letras.png" alt="BananasDev Texto" height="50" />
 
-<!--
-**BananasDevelopment/BananasDevelopment** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+  <h1 align="center">BananasDev | Software Solutions</h1>
 
-Here are some ideas to get you started:
+  <p align="center">
+    <strong>Transformamos ideas complejas en software de alto rendimiento.</strong>
+  </p>
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+  <p align="center">
+    <a href="#-servicios">Servicios</a> •
+    <a href="#-stack-tecnológico">Stack</a> •
+    <a href="#-el-escuadrón">Equipo</a> •
+    <a href="#-contacto">Contacto</a>
+  </p>
+
+  [![Website Status](https://img.shields.io/website?down_color=red&down_message=offline&label=System&style=for-the-badge&up_color=success&up_message=online&url=https%3A%2F%2Fbananasdev.com)](https://bananasdev.com)
+  ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
+  ![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
+</div>
+
+---
+
+## 🚀 Sobre Nosotros
+
+**BananasDev** es una agencia de desarrollo de software ágil y moderna. Nos especializamos en crear ecosistemas digitales completos, desde la arquitectura de base de datos hasta la experiencia de usuario final en móviles y web.
+
+No solo escribimos código; diseñamos soluciones escalables impulsadas por **Inteligencia Artificial** y arquitecturas robustas.
+
+## 🛠 Stack Tecnológico
+
+Utilizamos las herramientas más potentes del mercado para garantizar velocidad y seguridad:
+
+| Área | Tecnologías |
+| :--- | :--- |
+| **Backend** | ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white) ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) |
+| **Frontend** | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) |
+| **Mobile** | ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white) ![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=dart&logoColor=white) |
+| **Data & AI** | ![MySQL](https://img.shields.io/badge/MySQL-00000F?style=flat-square&logo=mysql&logoColor=white) ![Rasa](https://img.shields.io/badge/Rasa-5A17EE?style=flat-square&logo=rasa&logoColor=white) |
+| **DevOps** | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazon-aws&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) |
+
+## 👥 El Escuadrón
+
+Nuestro equipo multidisciplinario está listo para cualquier reto:
+
+| Rol | Miembro | Especialidad |
+| :--- | :--- | :--- |
+| **CEO & Lead Architect** | 👑 **Alexis Reynaga** | Arquitectura de Software, Estrategia & Full Stack. |
+| **Senior Backend Dev** | 🛡️ **Luis Rodriguez** | Laravel, Bases de Datos & Seguridad. |
+| **Lead Frontend & UX** | 🎨 **Axel Loredo** | React, Tailwind & Experiencia de Usuario. |
+| **Mobile Specialist** | 📱 **Ricardo Salinas** | Desarrollo Nativo iOS/Android con Flutter. |
+| **AI & Data Engineer** | 🤖 **Kevin Don** | Machine Learning, Python & Chatbots. |
+
+## 📬 Contacto
+
+¿Tienes un proyecto en mente? ¡Hablemos!
+
+* 📧 **Email:** bananasdevelopment@gmail.com
+* 💼 **LinkedIn:** [BananasDev](https://linkedin.com)
+* 🌐 **Web:** [bananasdev.com](https://bananasdev.com)
+
+---
+<p align="center">
+  © 2025 BananasDev. Code with 💛 and ☕.
+</p>
