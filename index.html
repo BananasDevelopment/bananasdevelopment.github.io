@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BananasDev | Agencia de Software</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; background-color: #0a0a0a; color: #f3f3f3; overflow-x: hidden; }
+    
+    :root {
+      --primary: #FFD700; 
+      --primary-dark: #c7a700;
+    }
+    .text-primary { color: var(--primary); }
+    .bg-primary { background-color: var(--primary); }
+    .border-primary { border-color: var(--primary); }
+
+    /* Fondo Animado Gradiente */
+    .animate-gradient-bg {
+      background: linear-gradient(-45deg, #050505, #1a1a00, #222, #050505);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Patrón de fondo sutil */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    /* Tarjetas con efecto Glass */
+    .glass-card {
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 215, 0, 0.1);
+      transition: all 0.4s ease;
+    }
+    .glass-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+    }
+
+    /* Navbar transition */
+    #navbar { transition: all 0.3s ease-in-out; }
+    #navbar.scrolled { background-color: rgba(0, 0, 0, 0.95); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); padding-top: 10px; padding-bottom: 10px; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <nav id="navbar" class="fixed w-full z-50 bg-transparent border-b border-white/5 py-4">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      
+      <a href="#" class="flex items-center gap-3 group">
+        <img src="assets/logo.png" alt="Logo BananasDev" class="h-10 w-auto group-hover:scale-110 transition duration-300">
+        <img src="assets/letras.png" alt="BananasDev Texto" class="h-6 w-auto mt-1 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition duration-300" style="filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));"> 
+      </a>
+      
+      <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest items-center">
+        <a href="#services" class="hover:text-primary transition relative group">Servicios <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span></a>
+        <a href="#team" class="hover:text-primary transition relative group">Equipo <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span></a>
+        <a href="#process" class="hover:text-primary transition relative group">Proceso <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span></a>
+        <a href="#contact" class="ml-4 px-6 py-3 bg-primary text-black rounded font-bold hover:bg-yellow-500 transition transform hover:-translate-y-1 shadow-lg shadow-primary/20">
+          Cotizar Ahora
+        </a>
+      </div>
+      <button class="md:hidden text-2xl text-white"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <header class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden animate-gradient-bg">
+    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+    
+    <div class="max-w-6xl text-center space-y-8 relative z-10" data-aos="zoom-out-up" data-aos-duration="1000">
+      
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-black/50 backdrop-blur text-sm font-bold text-primary mb-4 tracking-wider uppercase animate-bounce">
+        <span class="w-2 h-2 bg-primary rounded-full"></span> Agencia de Software
+      </div>
+      
+      <h1 class="text-5xl md:text-8xl font-black leading-tight text-white drop-shadow-2xl">
+        TRANSFORMAMOS IDEAS <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-primary">EN SOFTWARE REAL</span>
+      </h1>
+      
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light" data-aos="fade-up" data-aos-delay="200">
+        En <strong>BananasDev</strong> creamos soluciones digitales a medida. Desde aplicaciones móviles hasta sistemas empresariales complejos.
+      </p>
+      
+      <div class="flex flex-wrap justify-center gap-5 pt-8" data-aos="fade-up" data-aos-delay="400">
+        <a href="#contact" class="px-10 py-4 bg-primary text-black font-black rounded hover:bg-yellow-400 transition transform hover:scale-105 shadow-[0_0_20px_rgba(255,215,0,0.4)] uppercase tracking-widest text-sm flex items-center gap-3">
+          <i class="fa-solid fa-rocket"></i> Iniciar Proyecto
+        </a>
+        <a href="#team" class="px-10 py-4 border border-white/20 text-white font-bold rounded hover:bg-white/10 hover:border-primary transition uppercase tracking-widest text-sm flex items-center gap-3">
+          Conocer al Equipo
+        </a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-primary animate-bounce">
+      <i class="fa-solid fa-chevron-down text-3xl opacity-80"></i>
+    </div>
+  </header>
+
+  <section id="services" class="py-24 bg-[#0a0a0a] relative">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-20" data-aos="fade-down">
+        <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs">Lo que hacemos</span>
+        <h2 class="text-4xl md:text-5xl font-black mt-2 text-white uppercase">Nuestros <span class="text-primary">Servicios</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass-card p-10 rounded-2xl group js-tilt" data-tilt data-tilt-max="5" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:rotate-6 shadow-lg">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-primary transition">Desarrollo Web</h3>
+          <p class="text-gray-400 leading-relaxed text-sm">Plataformas robustas y escalables. Backends complejos con Laravel y frontends reactivos de alto rendimiento.</p>
+        </div>
+
+        <div class="glass-card p-10 rounded-2xl group js-tilt" data-tilt data-tilt-max="5" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:-rotate-6 shadow-lg">
+            <i class="fa-solid fa-mobile-screen"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-primary transition">Apps Móviles</h3>
+          <p class="text-gray-400 leading-relaxed text-sm">Desarrollo nativo y multiplataforma (Flutter). Llevamos tu negocio al bolsillo de tus clientes.</p>
+        </div>
+
+        <div class="glass-card p-10 rounded-2xl group js-tilt" data-tilt data-tilt-max="5" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:rotate-6 shadow-lg">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-primary transition">Soluciones IA</h3>
+          <p class="text-gray-400 leading-relaxed text-sm">Automatización inteligente, integración de Chatbots y análisis de datos para optimizar procesos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="py-24 relative overflow-hidden bg-grid-pattern">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-20" data-aos="fade-down">
+        <span class="text-primary font-bold tracking-[0.2em] uppercase text-xs">Squad</span>
+        <h2 class="text-4xl md:text-5xl font-black mt-2 uppercase text-white">Talento <span class="text-primary">Humano</span></h2>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-8">
+        
+        <div class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt" data-tilt data-tilt-glare data-tilt-max-glare="0.2" data-aos="zoom-in" data-aos-delay="100">
+          <div class="h-28 bg-gradient-to-tr from-primary/80 to-yellow-600/80 relative">
+             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
+          </div>
+          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] overflow-hidden shadow-2xl group-hover:scale-105 transition duration-500">
+            <img src="assets/alexis.jpeg" alt="Alexis" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-black text-white uppercase">Alexis Reynaga</h3>
+            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">CEO & Lead Architect</p>
+            <p class="text-gray-400 text-xs font-medium">Líder técnico. Especialista en arquitectura de software y estrategia.</p>
+          </div>
+        </div>
+
+        <div class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-aos="zoom-in" data-aos-delay="200">
+          <div class="h-28 bg-gradient-to-tr from-blue-700 to-cyan-600"></div>
+          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] overflow-hidden shadow-2xl group-hover:scale-105 transition duration-500 bg-gray-800">
+            <img src="assets/luis.jpeg" alt="Luis Rodriguez" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-black text-white uppercase">Luis Rodriguez</h3>
+            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">Senior Backend Dev</p>
+            <p class="text-gray-400 text-xs font-medium">Experto en lógica de servidor, bases de datos y seguridad.</p>
+          </div>
+        </div>
+
+        <div class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-aos="zoom-in" data-aos-delay="300">
+          <div class="h-28 bg-gradient-to-tr from-green-600 to-emerald-500"></div>
+          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] overflow-hidden shadow-2xl group-hover:scale-105 transition duration-500 bg-gray-800">
+            <img src="assets/axel.jpeg" alt="Axel Loredo" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-black text-white uppercase">Axel Loredo</h3>
+            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">Frontend & UI/UX</p>
+            <p class="text-gray-400 text-xs font-medium">Diseño de interfaces, experiencia de usuario y animaciones web.</p>
+          </div>
+        </div>
+
+        <div class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-aos="zoom-in" data-aos-delay="400">
+          <div class="h-28 bg-gradient-to-tr from-orange-600 to-red-500"></div>
+          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] overflow-hidden shadow-2xl group-hover:scale-105 transition duration-500 bg-gray-800">
+            <img src="assets/rica.jpeg" alt="Ricardo Salinas" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-black text-white uppercase">Ricardo Salinas</h3>
+            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">Mobile Specialist</p>
+            <p class="text-gray-400 text-xs font-medium">Desarrollo de aplicaciones nativas y optimización móvil.</p>
+          </div>
+        </div>
+
+        <div class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-aos="zoom-in" data-aos-delay="500">
+          <div class="h-28 bg-gradient-to-tr from-purple-600 to-indigo-500"></div>
+          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] overflow-hidden shadow-2xl group-hover:scale-105 transition duration-500 bg-gray-800">
+            <img src="assets/kevin.jpeg" alt="Kevin Don" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-black text-white uppercase">Kevin Don</h3>
+            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">Data & AI Engineer</p>
+            <p class="text-gray-400 text-xs font-medium">Ciencia de datos, aprendizaje automático e implementaciones de IA.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="py-24 bg-primary text-black relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl font-black mb-16 uppercase" data-aos="fade-up">Nuestro <span class="text-white">Flujo</span> de Trabajo</h2>
+      
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+          <div class="w-20 h-20 bg-black text-primary rounded-2xl flex items-center justify-center text-3xl font-black mx-auto mb-6 border-4 border-white/20 shadow-xl transform group-hover:rotate-12 transition duration-300">1</div>
+          <h4 class="font-bold text-xl uppercase mb-2">Discovery</h4>
+          <p class="font-medium opacity-80 text-sm">Análisis de requerimientos y objetivos.</p>
+        </div>
+        <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+          <div class="w-20 h-20 bg-black text-primary rounded-2xl flex items-center justify-center text-3xl font-black mx-auto mb-6 border-4 border-white/20 shadow-xl transform group-hover:-rotate-12 transition duration-300">2</div>
+          <h4 class="font-bold text-xl uppercase mb-2">Diseño</h4>
+          <p class="font-medium opacity-80 text-sm">Prototipado UI/UX y arquitectura.</p>
+        </div>
+        <div class="relative group" data-aos="fade-up" data-aos-delay="300">
+          <div class="w-20 h-20 bg-black text-primary rounded-2xl flex items-center justify-center text-3xl font-black mx-auto mb-6 border-4 border-white/20 shadow-xl transform group-hover:rotate-12 transition duration-300">3</div>
+          <h4 class="font-bold text-xl uppercase mb-2">Código</h4>
+          <p class="font-medium opacity-80 text-sm">Desarrollo ágil y pruebas.</p>
+        </div>
+        <div class="relative group" data-aos="fade-up" data-aos-delay="400">
+          <div class="w-20 h-20 bg-black text-primary rounded-2xl flex items-center justify-center text-3xl font-black mx-auto mb-6 border-4 border-white/20 shadow-xl transform group-hover:-rotate-12 transition duration-300">4</div>
+          <h4 class="font-bold text-xl uppercase mb-2">Lanzamiento</h4>
+          <p class="font-medium opacity-80 text-sm">Deploy y soporte continuo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-24 bg-[#0a0a0a] relative">
+    <div class="max-w-4xl mx-auto px-6 relative z-10" data-aos="zoom-in-up">
+      <div class="glass-card rounded-3xl p-10 md:p-16 border border-white/10 shadow-2xl relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+
+        <div class="text-center mb-12 relative">
+          <h2 class="text-4xl font-black text-white uppercase">¿Listo para <span class="text-primary">Innovar</span>?</h2>
+          <p class="text-gray-400 mt-4 text-lg">Cuéntanos tu idea. Nosotros ponemos el código.</p>
+        </div>
+
+        <form action="https://formspree.io/f/xgvglnja" method="POST" class="space-y-8 relative">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="group">
+              <label class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Tu Nombre</label>
+              <input type="text" name="name" class="w-full bg-[#1a1a1a]/80 border-2 border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-primary transition-all duration-300" placeholder="Nombre completo" required>
+            </div>
+            <div class="group">
+              <label class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Email Corporativo</label>
+              <input type="email" name="email" class="w-full bg-[#1a1a1a]/80 border-2 border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-primary transition-all duration-300" placeholder="email@empresa.com" required>
+            </div>
+          </div>
+          
+          <div class="group">
+            <label class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Detalles del Proyecto</label>
+            <textarea name="message" rows="5" class="w-full bg-[#1a1a1a]/80 border-2 border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-primary transition-all duration-300 resize-none" placeholder="Describe brevemente tus objetivos..." required></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-primary text-black font-black text-lg py-5 rounded-lg transition-all transform hover:scale-[1.02] hover:bg-yellow-400 shadow-2xl shadow-primary/30 uppercase tracking-widest flex items-center justify-center gap-3">
+            <span>Enviar Solicitud</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-12 bg-black border-t border-white/5 text-center relative z-10">
+    <div class="flex items-center justify-center gap-2 mb-4 group cursor-pointer">
+      <img src="assets/logo.png" alt="Logo" class="h-8 w-auto grayscale group-hover:grayscale-0 transition">
+      <img src="assets/letras.png" alt="Letras" class="h-5 w-auto filter brightness-50 group-hover:brightness-100 transition">
+    </div>
+    <p class="text-gray-600 text-xs mt-6">© 2025 BananasDev. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+  <script>
+    // Iniciar Animaciones de Scroll
+    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
+
+    // Iniciar Efecto 3D en tarjetas
+    VanillaTilt.init(document.querySelectorAll(".js-tilt"));
+
+    // Navbar dinámico (Transparente -> Negro al bajar)
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+        navbar.classList.remove('bg-transparent', 'py-4');
+      } else {
+        navbar.classList.remove('scrolled');
+        navbar.classList.add('bg-transparent', 'py-4');
+      }
+    });
+  </script>
+</body>
+</html>
