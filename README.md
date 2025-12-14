@@ -49,7 +49,7 @@ Nuestro equipo multidisciplinario está listo para cualquier reto:
 | :--- | :--- | :--- |
 | **CEO & Lead Architect** | 👑 **Alexis Reynaga** | Arquitectura de Software, Estrategia & Full Stack. |
 | **Senior Backend Dev** | 🛡️ **Luis Rodriguez** | Laravel, Bases de Datos & Seguridad. |
-| **Full-Stack Developer** | 💻 **Axel Loredo** | Desarrollo Integral, Stack MERN/MEAN & UX. |
+| **Full-Stack Developer** | 💻 **Axel Loredo** | Desarrollo Integral, Stack MERN/MEAN & UI/UX. |
 | **Mobile Specialist** | 📱 **Ricardo Salinas** | Desarrollo Nativo iOS/Android con Flutter. |
 | **AI & Data Engineer** | 🤖 **Kevin Don** | Machine Learning, Python & Chatbots. |
 
