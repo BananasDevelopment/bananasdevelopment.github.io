@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BananasDev | Desarrollo de software a medida</title>
+
+  <link rel="icon" type="image/png" href="assets/logo.png">
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -11,27 +14,32 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --bn-black:   #000000;
-      --bn-yellow:  #FFDD00;
-      --bn-yellow-d:#e6c700;
-      --bn-white:   #FFFFFF;
-      --bn-blue:    #235789;
-      --bn-blue-l:  #2d6ba6;
-      --bn-brown:   #533E2D;
+      --bn-black: #000000;
+      --bn-yellow: #FFDD00;
+      --bn-yellow-d: #e6c700;
+      --bn-white: #FFFFFF;
+      --bn-blue: #235789;
+      --bn-blue-l: #2d6ba6;
+      --bn-brown: #533E2D;
       --bn-brown-l: #6e5340;
-      --bn-bg:      #0a0a0a;
+      --bn-bg: #0a0a0a;
       --bn-surface: #111111;
-      --bn-surface-2:#161616;
-      --bn-border:  rgba(255, 255, 255, 0.08);
-      --bn-muted:   #9ca3af;
+      --bn-surface-2: #161616;
+      --bn-border: rgba(255, 255, 255, 0.08);
+      --bn-muted: #9ca3af;
     }
 
-    html { background-color: var(--bn-bg); }
+    html {
+      background-color: var(--bn-bg);
+      scroll-padding-top: 90px;
+    }
+
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: transparent;
@@ -50,53 +58,110 @@
       pointer-events: none;
       contain: strict;
     }
+
     .aurora-blob {
       position: absolute;
       border-radius: 50%;
       will-change: transform;
       transform: translate3d(0, 0, 0);
     }
+
     .aurora-blob.b1 {
-      width: 700px; height: 700px;
+      width: 700px;
+      height: 700px;
       background: radial-gradient(circle, rgba(255, 221, 0, 0.18) 0%, rgba(255, 221, 0, 0) 65%);
-      top: -15%; left: -10%;
+      top: -15%;
+      left: -10%;
       animation: aurora-drift-1 30s ease-in-out infinite;
     }
+
     .aurora-blob.b2 {
-      width: 800px; height: 800px;
+      width: 800px;
+      height: 800px;
       background: radial-gradient(circle, rgba(35, 87, 137, 0.22) 0%, rgba(35, 87, 137, 0) 65%);
-      bottom: -20%; right: -12%;
+      bottom: -20%;
+      right: -12%;
       animation: aurora-drift-2 36s ease-in-out infinite;
     }
+
     .aurora-blob.b3 {
-      width: 600px; height: 600px;
+      width: 600px;
+      height: 600px;
       background: radial-gradient(circle, rgba(216, 30, 91, 0.13) 0%, rgba(216, 30, 91, 0) 65%);
-      top: 40%; left: 40%;
+      top: 40%;
+      left: 40%;
       animation: aurora-drift-3 40s ease-in-out infinite;
     }
+
     @keyframes aurora-drift-1 {
-      0%, 100% { transform: translate3d(0, 0, 0); }
-      50% { transform: translate3d(80px, 60px, 0); }
-    }
-    @keyframes aurora-drift-2 {
-      0%, 100% { transform: translate3d(0, 0, 0); }
-      50% { transform: translate3d(-70px, -90px, 0); }
-    }
-    @keyframes aurora-drift-3 {
-      0%, 100% { transform: translate3d(0, 0, 0); }
-      50% { transform: translate3d(60px, -50px, 0); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .aurora-blob { animation: none; }
+
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      50% {
+        transform: translate3d(80px, 60px, 0);
+      }
     }
 
-    .text-bn-yellow { color: var(--bn-yellow); }
-    .text-bn-blue { color: var(--bn-blue-l); }
-    .bg-bn-yellow { background-color: var(--bn-yellow); }
-    .bg-bn-blue { background-color: var(--bn-blue); }
-    .bg-bn-brown { background-color: var(--bn-brown); }
-    .border-bn-yellow { border-color: var(--bn-yellow); }
-    .text-bn-muted { color: var(--bn-muted); }
+    @keyframes aurora-drift-2 {
+
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      50% {
+        transform: translate3d(-70px, -90px, 0);
+      }
+    }
+
+    @keyframes aurora-drift-3 {
+
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      50% {
+        transform: translate3d(60px, -50px, 0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .aurora-blob {
+        animation: none;
+      }
+    }
+
+    .text-bn-yellow {
+      color: var(--bn-yellow);
+    }
+
+    .text-bn-blue {
+      color: var(--bn-blue-l);
+    }
+
+    .bg-bn-yellow {
+      background-color: var(--bn-yellow);
+    }
+
+    .bg-bn-blue {
+      background-color: var(--bn-blue);
+    }
+
+    .bg-bn-brown {
+      background-color: var(--bn-brown);
+    }
+
+    .border-bn-yellow {
+      border-color: var(--bn-yellow);
+    }
+
+    .text-bn-muted {
+      color: var(--bn-muted);
+    }
 
     /* Patrón de fondo: rejilla técnica sutil tipo blueprint */
     .bg-blueprint {
@@ -116,9 +181,15 @@
 
     /* Marquee bar */
     @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
+
     .marquee-track {
       display: flex;
       animation: marquee 35s linear infinite;
@@ -132,6 +203,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .card:hover {
       border-color: var(--bn-yellow);
       transform: translateY(-4px);
@@ -148,18 +220,25 @@
       transition: opacity .3s ease;
       opacity: 0;
     }
+
     .card-corner::before {
-      top: 10px; left: 10px;
+      top: 10px;
+      left: 10px;
       border-top: 1px solid;
       border-left: 1px solid;
     }
+
     .card-corner::after {
-      bottom: 10px; right: 10px;
+      bottom: 10px;
+      right: 10px;
       border-bottom: 1px solid;
       border-right: 1px solid;
     }
+
     .card-corner:hover::before,
-    .card-corner:hover::after { opacity: 1; }
+    .card-corner:hover::after {
+      opacity: 1;
+    }
 
     /* Number badge */
     .num-badge {
@@ -175,16 +254,25 @@
       color: rgba(255, 255, 255, 0.65);
       transition: color .2s ease;
     }
-    .nav-link:hover { color: var(--bn-white); }
+
+    .nav-link:hover {
+      color: var(--bn-white);
+    }
+
     .nav-link::after {
       content: '';
       position: absolute;
-      left: 0; bottom: -6px;
-      width: 0; height: 2px;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
       background: var(--bn-yellow);
       transition: width .25s ease;
     }
-    .nav-link:hover::after { width: 100%; }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
 
     .input-underline {
       background: transparent;
@@ -198,18 +286,25 @@
       font-family: inherit;
       font-size: 0.95rem;
     }
+
     .input-underline:focus {
       outline: none;
       border-bottom-color: var(--bn-yellow);
     }
-    .input-underline::placeholder { color: rgba(255, 255, 255, 0.3); }
+
+    .input-underline::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
 
     select.input-underline option {
       background-color: var(--bn-surface);
       color: var(--bn-white);
     }
 
-    #navbar { transition: background-color .25s ease, border-color .25s ease, padding .25s ease; }
+    #navbar {
+      transition: background-color .25s ease, border-color .25s ease, padding .25s ease;
+    }
+
     #navbar.scrolled {
       background-color: rgba(0, 0, 0, 0.92);
       backdrop-filter: blur(8px);
@@ -226,6 +321,7 @@
       transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
       position: relative;
     }
+
     .btn-primary:hover {
       background-color: var(--bn-white);
       transform: translateY(-2px);
@@ -239,6 +335,7 @@
       letter-spacing: 0.08em;
       transition: border-color .2s ease, color .2s ease, background-color .2s ease;
     }
+
     .btn-ghost:hover {
       border-color: var(--bn-yellow);
       color: var(--bn-yellow);
@@ -256,9 +353,11 @@
       letter-spacing: 0.28em;
       color: var(--bn-yellow);
     }
+
     .eyebrow::before {
       content: '';
-      width: 24px; height: 1px;
+      width: 24px;
+      height: 1px;
       background: var(--bn-yellow);
     }
 
@@ -276,7 +375,11 @@
       border-top: 1px solid var(--bn-border);
       transition: background-color .3s ease;
     }
-    .process-step:hover { background-color: rgba(255, 221, 0, 0.03); }
+
+    .process-step:hover {
+      background-color: rgba(255, 221, 0, 0.03);
+    }
+
     .process-step .step-num {
       font-weight: 200;
       color: var(--bn-yellow);
@@ -289,6 +392,7 @@
     .avatar-ring {
       position: relative;
     }
+
     .avatar-ring::before {
       content: '';
       position: absolute;
@@ -297,6 +401,7 @@
       border: 1px dashed rgba(255, 221, 0, 0.25);
       transition: transform .6s ease, border-color .3s ease;
     }
+
     .group:hover .avatar-ring::before {
       transform: rotate(180deg);
       border-color: var(--bn-yellow);
@@ -314,6 +419,7 @@
     }
   </style>
 </head>
+
 <body class="antialiased">
 
   <div class="aurora" aria-hidden="true">
@@ -332,14 +438,30 @@
 
       <div class="hidden md:flex gap-10 text-[11px] font-semibold uppercase tracking-[0.25em] items-center">
         <a href="#services" class="nav-link">Servicios</a>
+        <a href="#values" class="nav-link">Filosofía</a>
         <a href="#team" class="nav-link">Equipo</a>
         <a href="#process" class="nav-link">Proceso</a>
-        <a href="#values" class="nav-link">Filosofía</a>
         <a href="#contact" class="btn-primary px-5 py-3 text-[11px]">
           Cotizar <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>
         </a>
       </div>
-      <button class="md:hidden text-xl text-white" aria-label="Menú"><i class="fa-solid fa-bars"></i></button>
+      <button id="mobile-menu-toggle" class="md:hidden text-xl text-white" aria-label="Menú" aria-expanded="false"
+        aria-controls="mobile-menu">
+        <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden border-t border-white/5 bg-black/95 backdrop-blur-md">
+      <div
+        class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5 text-[12px] font-semibold uppercase tracking-[0.25em]">
+        <a href="#services" class="nav-link mobile-link">Servicios</a>
+        <a href="#team" class="nav-link mobile-link">Equipo</a>
+        <a href="#process" class="nav-link mobile-link">Proceso</a>
+        <a href="#values" class="nav-link mobile-link">Filosofía</a>
+        <a href="#contact" class="btn-primary mobile-link px-5 py-3 text-[11px] text-center">
+          Cotizar <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -348,7 +470,9 @@
 
     <!-- Gran palabra de fondo -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-      <span class="text-[18vw] md:text-[14vw] font-black text-white/[0.025] tracking-tighter select-none whitespace-nowrap">BANANAS DEV</span>
+      <span
+        class="text-[18vw] md:text-[14vw] font-black text-white/[0.025] tracking-tighter select-none whitespace-nowrap">BANANAS
+        DEV</span>
     </div>
 
     <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -363,7 +487,8 @@
         </h1>
 
         <p class="text-lg text-bn-muted max-w-xl leading-relaxed font-light" data-aos="fade-up" data-aos-delay="100">
-          Somos un socio estratégico para tu transformación digital. Construimos ecosistemas digitales fluidos, escalables y centrados en tu negocio.
+          Somos un socio estratégico para tu transformación digital. Construimos ecosistemas digitales fluidos,
+          escalables y centrados en tu negocio.
         </p>
 
         <div class="flex flex-wrap gap-4 pt-2" data-aos="fade-up" data-aos-delay="200">
@@ -394,7 +519,8 @@
     </div>
 
     <!-- Indicador inferior -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 text-[10px] uppercase tracking-[0.4em] flex flex-col items-center gap-2">
+    <div
+      class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 text-[10px] uppercase tracking-[0.4em] flex flex-col items-center gap-2">
       <span>Scroll</span>
       <div class="w-px h-8 bg-gradient-to-b from-bn-yellow to-transparent"></div>
     </div>
@@ -456,7 +582,8 @@
         </div>
         <div class="md:col-span-5" data-aos="fade-up" data-aos-delay="100">
           <p class="text-bn-muted text-base leading-relaxed font-light">
-            Cada producto se diseña con arquitectura robusta, agilidad iterativa y excelencia técnica. No vendemos plantillas: construimos tecnología hecha a la medida de tu operación.
+            Cada producto se diseña con arquitectura robusta, agilidad iterativa y excelencia técnica. No vendemos
+            plantillas: construimos tecnología hecha a la medida de tu operación.
           </p>
         </div>
       </div>
@@ -464,55 +591,72 @@
       <div class="grid md:grid-cols-3 gap-6">
         <div class="card card-corner p-10 group" data-aos="fade-up" data-aos-delay="0">
           <div class="flex items-start justify-between mb-8">
-            <div class="w-14 h-14 bg-bn-yellow/10 border border-bn-yellow/20 flex items-center justify-center text-2xl text-bn-yellow">
+            <div
+              class="w-14 h-14 bg-bn-yellow/10 border border-bn-yellow/20 flex items-center justify-center text-2xl text-bn-yellow">
               <i class="fa-solid fa-code"></i>
             </div>
             <span class="text-xs text-white/30 font-mono">/ 01</span>
           </div>
           <h3 class="text-2xl font-bold mb-4 text-white">Desarrollo Web</h3>
           <p class="text-bn-muted leading-relaxed text-sm font-light mb-6">
-            Plataformas robustas y escalables. Backends complejos con Laravel, Node y arquitecturas serverless. Frontends reactivos de alto rendimiento con React, Vue o Astro.
+            Plataformas robustas y escalables. Backends complejos con Laravel, Node y arquitecturas serverless.
+            Frontends reactivos de alto rendimiento con React, Vue o Astro.
           </p>
           <ul class="space-y-2 text-xs text-white/60">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bn-yellow text-[10px]"></i> SaaS multi-tenant</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bn-yellow text-[10px]"></i> APIs REST &amp; GraphQL</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bn-yellow text-[10px]"></i> Sistemas empresariales</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bn-yellow text-[10px]"></i> SaaS
+              multi-tenant</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bn-yellow text-[10px]"></i> APIs REST
+              &amp; GraphQL</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bn-yellow text-[10px]"></i> Sistemas
+              empresariales</li>
           </ul>
         </div>
 
-        <div class="card card-corner p-10 group" data-aos="fade-up" data-aos-delay="100" style="background: linear-gradient(180deg, var(--bn-surface) 0%, rgba(35, 87, 137, 0.08) 100%);">
+        <div class="card card-corner p-10 group" data-aos="fade-up" data-aos-delay="100"
+          style="background: linear-gradient(180deg, var(--bn-surface) 0%, rgba(35, 87, 137, 0.08) 100%);">
           <div class="flex items-start justify-between mb-8">
-            <div class="w-14 h-14 flex items-center justify-center text-2xl text-white" style="background-color: rgba(35, 87, 137, 0.18); border: 1px solid rgba(35, 87, 137, 0.4);">
+            <div class="w-14 h-14 flex items-center justify-center text-2xl text-white"
+              style="background-color: rgba(35, 87, 137, 0.18); border: 1px solid rgba(35, 87, 137, 0.4);">
               <i class="fa-solid fa-mobile-screen"></i>
             </div>
             <span class="text-xs text-white/30 font-mono">/ 02</span>
           </div>
           <h3 class="text-2xl font-bold mb-4 text-white">Aplicaciones Móviles</h3>
           <p class="text-bn-muted leading-relaxed text-sm font-light mb-6">
-            Desarrollo nativo y multiplataforma con Flutter y React Native. Llevamos tu negocio al bolsillo de tus clientes con experiencias fluidas y nativas.
+            Desarrollo nativo y multiplataforma con Flutter y React Native. Llevamos tu negocio al bolsillo de tus
+            clientes con experiencias fluidas y nativas.
           </p>
           <ul class="space-y-2 text-xs text-white/60">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-blue-l);"></i> iOS &amp; Android nativo</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-blue-l);"></i> Apps híbridas Flutter</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-blue-l);"></i> Notificaciones &amp; offline</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]"
+                style="color: var(--bn-blue-l);"></i> iOS &amp; Android nativo</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]"
+                style="color: var(--bn-blue-l);"></i> Apps híbridas Flutter</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]"
+                style="color: var(--bn-blue-l);"></i> Notificaciones &amp; offline</li>
           </ul>
         </div>
 
-        <div class="card card-corner p-10 group" data-aos="fade-up" data-aos-delay="200" style="background: linear-gradient(180deg, var(--bn-surface) 0%, rgba(83, 62, 45, 0.12) 100%);">
+        <div class="card card-corner p-10 group" data-aos="fade-up" data-aos-delay="200"
+          style="background: linear-gradient(180deg, var(--bn-surface) 0%, rgba(83, 62, 45, 0.12) 100%);">
           <div class="flex items-start justify-between mb-8">
-            <div class="w-14 h-14 flex items-center justify-center text-2xl text-white" style="background-color: rgba(83, 62, 45, 0.25); border: 1px solid rgba(110, 83, 64, 0.5);">
+            <div class="w-14 h-14 flex items-center justify-center text-2xl text-white"
+              style="background-color: rgba(83, 62, 45, 0.25); border: 1px solid rgba(110, 83, 64, 0.5);">
               <i class="fa-solid fa-robot"></i>
             </div>
             <span class="text-xs text-white/30 font-mono">/ 03</span>
           </div>
           <h3 class="text-2xl font-bold mb-4 text-white">Soluciones de IA</h3>
           <p class="text-bn-muted leading-relaxed text-sm font-light mb-6">
-            Automatización inteligente, integración de chatbots conversacionales y análisis de datos. Convertimos tu información en decisiones operativas.
+            Automatización inteligente, integración de chatbots conversacionales y análisis de datos. Convertimos tu
+            información en decisiones operativas.
           </p>
           <ul class="space-y-2 text-xs text-white/60">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-brown-l);"></i> Chatbots con LLMs</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-brown-l);"></i> ML &amp; predicciones</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-brown-l);"></i> RAG &amp; agentes</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]"
+                style="color: var(--bn-brown-l);"></i> Chatbots con LLMs</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]"
+                style="color: var(--bn-brown-l);"></i> ML &amp; predicciones</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]"
+                style="color: var(--bn-brown-l);"></i> RAG &amp; agentes</li>
           </ul>
         </div>
       </div>
@@ -533,7 +677,8 @@
         </div>
         <div class="md:col-span-7 flex items-end" data-aos="fade-up" data-aos-delay="100">
           <p class="text-bn-muted text-base leading-relaxed font-light">
-            No somos solo una empresa de código. Somos un socio estratégico para la transformación digital. Nuestra marca representa <span class="text-white">agilidad, precisión y arquitectura robusta</span>.
+            No somos solo una empresa de código. Somos un socio estratégico para la transformación digital. Nuestra
+            marca representa <span class="text-white">agilidad, precisión y arquitectura robusta</span>.
           </p>
         </div>
       </div>
@@ -541,14 +686,18 @@
       <div class="grid md:grid-cols-3 gap-px bg-white/5">
         <div class="bg-[var(--bn-bg)] p-10 group hover:bg-bn-yellow transition-colors duration-500" data-aos="fade-up">
           <div class="num-badge text-bn-yellow group-hover:text-black transition-colors mb-6">01</div>
-          <h3 class="text-xl font-bold text-white group-hover:text-black transition-colors mb-3 uppercase tracking-wider">Transparencia</h3>
+          <h3
+            class="text-xl font-bold text-white group-hover:text-black transition-colors mb-3 uppercase tracking-wider">
+            Transparencia</h3>
           <p class="text-sm text-bn-muted group-hover:text-black/70 transition-colors font-light leading-relaxed">
-            Comunicación clara en cada etapa. Sin sorpresas, sin letra chica. Acceso directo al equipo y al avance del producto.
+            Comunicación clara en cada etapa. Sin sorpresas, sin letra chica. Acceso directo al equipo y al avance del
+            producto.
           </p>
         </div>
 
-        <div class="bg-[var(--bn-bg)] p-10 group transition-colors duration-500" style="--hover-bg: var(--bn-blue);" data-aos="fade-up" data-aos-delay="100"
-             onmouseover="this.style.backgroundColor='var(--bn-blue)'" onmouseout="this.style.backgroundColor=''">
+        <div class="bg-[var(--bn-bg)] p-10 group transition-colors duration-500" style="--hover-bg: var(--bn-blue);"
+          data-aos="fade-up" data-aos-delay="100" onmouseover="this.style.backgroundColor='var(--bn-blue)'"
+          onmouseout="this.style.backgroundColor=''">
           <div class="num-badge transition-colors mb-6" style="color: var(--bn-blue-l);">02</div>
           <h3 class="text-xl font-bold text-white transition-colors mb-3 uppercase tracking-wider">Agilidad</h3>
           <p class="text-sm text-bn-muted transition-colors font-light leading-relaxed">
@@ -557,7 +706,7 @@
         </div>
 
         <div class="bg-[var(--bn-bg)] p-10 group transition-colors duration-500" data-aos="fade-up" data-aos-delay="200"
-             onmouseover="this.style.backgroundColor='var(--bn-brown)'" onmouseout="this.style.backgroundColor=''">
+          onmouseover="this.style.backgroundColor='var(--bn-brown)'" onmouseout="this.style.backgroundColor=''">
           <div class="num-badge transition-colors mb-6" style="color: var(--bn-brown-l);">03</div>
           <h3 class="text-xl font-bold text-white transition-colors mb-3 uppercase tracking-wider">Excelencia</h3>
           <p class="text-sm text-bn-muted transition-colors font-light leading-relaxed">
@@ -570,7 +719,8 @@
 
   <!-- EQUIPO -->
   <section id="team" class="py-32 relative">
-    <div class="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(255, 221, 0, 0.04), transparent 70%);"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none"
+      style="background: radial-gradient(circle, rgba(255, 221, 0, 0.04), transparent 70%);"></div>
     <div class="max-w-7xl mx-auto px-6 relative">
 
       <div class="grid md:grid-cols-12 gap-8 mb-16 items-end">
@@ -582,14 +732,16 @@
         </div>
         <div class="md:col-span-5" data-aos="fade-up" data-aos-delay="100">
           <p class="text-bn-muted text-base leading-relaxed font-light">
-            Un grupo multidisciplinario de ingenieros y diseñadores. Cada uno aporta una especialidad, todos comparten un estándar.
+            Un grupo multidisciplinario de ingenieros y diseñadores. Cada uno aporta una especialidad, todos comparten
+            un estándar.
           </p>
         </div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-        <a href="https://alexisreynaga.github.io/" target="_blank" rel="noopener" class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="0">
+        <a href="https://alexisreynaga.github.io/" target="_blank" rel="noopener"
+          class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="0">
           <div class="avatar-ring w-24 h-24 mx-auto mb-6">
             <div class="w-full h-full rounded-full overflow-hidden border-2" style="border-color: var(--bn-yellow);">
               <img src="assets/alexis.jpeg" alt="Alexis Reynaga" class="w-full h-full object-cover">
@@ -601,7 +753,8 @@
           </h3>
           <p class="text-[9px] text-bn-yellow uppercase tracking-[0.2em] font-bold mb-3">Frontend &amp; Deploy</p>
           <div class="w-6 h-px bg-white/10 mx-auto mb-3"></div>
-          <p class="text-bn-muted text-xs font-light leading-relaxed">Interfaces reactivas, lógica de servidor, despliegue en cloud y configuración de infraestructura.</p>
+          <p class="text-bn-muted text-xs font-light leading-relaxed">Interfaces reactivas, lógica de servidor,
+            despliegue en cloud y configuración de infraestructura.</p>
         </a>
 
         <div class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="50">
@@ -613,12 +766,15 @@
           <h3 class="text-base font-bold text-white mb-1">
             Luis Rodriguez
           </h3>
-          <p class="text-[9px] uppercase tracking-[0.2em] font-bold mb-3" style="color: var(--bn-blue-l);">Data Analyst &amp; DB</p>
+          <p class="text-[9px] uppercase tracking-[0.2em] font-bold mb-3" style="color: var(--bn-blue-l);">Data Analyst
+            &amp; DB</p>
           <div class="w-6 h-px bg-white/10 mx-auto mb-3"></div>
-          <p class="text-bn-muted text-xs font-light leading-relaxed">Análisis de datos, modelado y administración de bases de datos.</p>
+          <p class="text-bn-muted text-xs font-light leading-relaxed">Análisis de datos, modelado y administración de
+            bases de datos.</p>
         </div>
 
-        <a href="https://siraxlord.github.io" target="_blank" rel="noopener" class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="100">
+        <a href="https://siraxlord.github.io" target="_blank" rel="noopener"
+          class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="100">
           <div class="avatar-ring w-24 h-24 mx-auto mb-6">
             <div class="w-full h-full rounded-full overflow-hidden border-2" style="border-color: #D81E5B;">
               <img src="assets/axel.jpg" alt="Axel Loredo" class="w-full h-full object-cover">
@@ -628,12 +784,14 @@
             Axel Loredo
             <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1 text-white/60"></i>
           </h3>
-          <p class="text-[9px] uppercase tracking-[0.2em] font-bold mb-3" style="color: #D81E5B;">Backend &amp; Automatización</p>
+          <p class="text-[9px] uppercase tracking-[0.2em] font-bold mb-3" style="color: #D81E5B;">Backend &amp;
+            Automatización</p>
           <div class="w-6 h-px bg-white/10 mx-auto mb-3"></div>
           <p class="text-bn-muted text-xs font-light leading-relaxed">Integraciones y automatización de procesos.</p>
         </a>
 
-        <a href="https://rica-2000.github.io/" target="_blank" rel="noopener" class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="150">
+        <a href="https://rica-2000.github.io/" target="_blank" rel="noopener"
+          class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="150">
           <div class="avatar-ring w-24 h-24 mx-auto mb-6">
             <div class="w-full h-full rounded-full overflow-hidden border-2" style="border-color: #4ADE80;">
               <img src="assets/rica.jpeg" alt="Ricardo Salinas" class="w-full h-full object-cover">
@@ -645,7 +803,8 @@
           </h3>
           <p class="text-[9px] uppercase tracking-[0.2em] font-bold mb-3" style="color: #4ADE80;">Backend Developer</p>
           <div class="w-6 h-px bg-white/10 mx-auto mb-3"></div>
-          <p class="text-bn-muted text-xs font-light leading-relaxed">APIs robustas, lógica de negocio y arquitectura del lado del servidor.</p>
+          <p class="text-bn-muted text-xs font-light leading-relaxed">APIs robustas, lógica de negocio y arquitectura
+            del lado del servidor.</p>
         </a>
 
         <!--
@@ -671,7 +830,8 @@
 
   <!-- PROCESO -->
   <section id="process" class="py-32 relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(135deg, transparent 60%, rgba(35, 87, 137, 0.08) 100%);"></div>
+    <div class="absolute inset-0 pointer-events-none"
+      style="background: linear-gradient(135deg, transparent 60%, rgba(35, 87, 137, 0.08) 100%);"></div>
     <div class="max-w-7xl mx-auto px-6 relative">
 
       <div class="grid md:grid-cols-12 gap-8 mb-16 items-end">
@@ -683,7 +843,8 @@
         </div>
         <div class="md:col-span-5" data-aos="fade-up" data-aos-delay="100">
           <p class="text-bn-muted text-base leading-relaxed font-light">
-            Cuatro fases. Entregas continuas. Validación constante. Cada etapa minimiza el riesgo y maximiza el valor entregado al negocio.
+            Cuatro fases. Entregas continuas. Validación constante. Cada etapa minimiza el riesgo y maximiza el valor
+            entregado al negocio.
           </p>
         </div>
       </div>
@@ -693,25 +854,31 @@
           <div class="step-num">01</div>
           <div class="w-10 h-px bg-bn-yellow my-4 group-hover:w-16 transition-all"></div>
           <h4 class="font-bold text-lg text-white mb-2 uppercase tracking-wider">Discovery</h4>
-          <p class="text-bn-muted text-sm font-light leading-relaxed">Análisis de requerimientos, objetivos del negocio y definición técnica del alcance.</p>
+          <p class="text-bn-muted text-sm font-light leading-relaxed">Análisis de requerimientos, objetivos del negocio
+            y definición técnica del alcance.</p>
         </div>
         <div class="process-step group border-l border-white/5" data-aos="fade-up" data-aos-delay="100">
           <div class="step-num" style="color: var(--bn-blue-l);">02</div>
           <div class="w-10 h-px my-4 group-hover:w-16 transition-all" style="background-color: var(--bn-blue-l);"></div>
           <h4 class="font-bold text-lg text-white mb-2 uppercase tracking-wider">Diseño</h4>
-          <p class="text-bn-muted text-sm font-light leading-relaxed">Prototipado UI/UX, wireframes interactivos y arquitectura técnica del sistema.</p>
+          <p class="text-bn-muted text-sm font-light leading-relaxed">Prototipado UI/UX, wireframes interactivos y
+            arquitectura técnica del sistema.</p>
         </div>
         <div class="process-step group border-l border-white/5" data-aos="fade-up" data-aos-delay="200">
           <div class="step-num" style="color: var(--bn-brown-l);">03</div>
-          <div class="w-10 h-px my-4 group-hover:w-16 transition-all" style="background-color: var(--bn-brown-l);"></div>
+          <div class="w-10 h-px my-4 group-hover:w-16 transition-all" style="background-color: var(--bn-brown-l);">
+          </div>
           <h4 class="font-bold text-lg text-white mb-2 uppercase tracking-wider">Desarrollo</h4>
-          <p class="text-bn-muted text-sm font-light leading-relaxed">Sprints ágiles con entregas semanales, pruebas automatizadas y revisión continua.</p>
+          <p class="text-bn-muted text-sm font-light leading-relaxed">Sprints ágiles con entregas semanales, pruebas
+            automatizadas y revisión continua.</p>
         </div>
-        <div class="process-step group border-l border-r-0 lg:border-r border-white/5" data-aos="fade-up" data-aos-delay="300">
+        <div class="process-step group border-l border-r-0 lg:border-r border-white/5" data-aos="fade-up"
+          data-aos-delay="300">
           <div class="step-num">04</div>
           <div class="w-10 h-px bg-bn-yellow my-4 group-hover:w-16 transition-all"></div>
           <h4 class="font-bold text-lg text-white mb-2 uppercase tracking-wider">Lanzamiento</h4>
-          <p class="text-bn-muted text-sm font-light leading-relaxed">Deploy en infraestructura cloud, monitoreo activo y soporte post-lanzamiento.</p>
+          <p class="text-bn-muted text-sm font-light leading-relaxed">Deploy en infraestructura cloud, monitoreo activo
+            y soporte post-lanzamiento.</p>
         </div>
       </div>
     </div>
@@ -720,7 +887,8 @@
   <!-- CTA / CONTACTO -->
   <section id="contact" class="py-32 relative overflow-hidden">
     <div class="absolute inset-0 bg-blueprint opacity-40 pointer-events-none"></div>
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(255, 221, 0, 0.08), transparent 60%);"></div>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+      style="background: radial-gradient(circle, rgba(255, 221, 0, 0.08), transparent 60%);"></div>
 
     <div class="max-w-6xl mx-auto px-6 relative z-10">
 
@@ -732,12 +900,14 @@
             Hablemos de<br>tu <span class="text-bn-yellow">próxima</span><br>idea.
           </h2>
           <p class="text-bn-muted text-base leading-relaxed font-light max-w-md">
-            Cuéntanos qué quieres construir. Nosotros ponemos el código, la arquitectura y el equipo para llevarlo a producción.
+            Cuéntanos qué quieres construir. Nosotros ponemos el código, la arquitectura y el equipo para llevarlo a
+            producción.
           </p>
 
           <div class="space-y-4 pt-4 border-t border-white/5">
             <div class="flex items-center gap-4">
-              <div class="w-10 h-10 flex items-center justify-center bg-bn-yellow/10 border border-bn-yellow/20 text-bn-yellow">
+              <div
+                class="w-10 h-10 flex items-center justify-center bg-bn-yellow/10 border border-bn-yellow/20 text-bn-yellow">
                 <i class="fa-solid fa-envelope"></i>
               </div>
               <div>
@@ -746,7 +916,8 @@
               </div>
             </div>
             <div class="flex items-center gap-4">
-              <div class="w-10 h-10 flex items-center justify-center" style="background-color: rgba(35, 87, 137, 0.15); border: 1px solid rgba(35, 87, 137, 0.3); color: var(--bn-blue-l);">
+              <div class="w-10 h-10 flex items-center justify-center"
+                style="background-color: rgba(35, 87, 137, 0.15); border: 1px solid rgba(35, 87, 137, 0.3); color: var(--bn-blue-l);">
                 <i class="fa-solid fa-clock"></i>
               </div>
               <div>
@@ -763,17 +934,20 @@
             <form action="https://formspree.io/f/xgvglnja" method="POST" class="space-y-7">
               <div class="grid md:grid-cols-2 gap-7">
                 <div>
-                  <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Nombre</label>
+                  <label
+                    class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Nombre</label>
                   <input type="text" name="name" class="input-underline" placeholder="Tu nombre completo" required>
                 </div>
                 <div>
-                  <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Email</label>
+                  <label
+                    class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Email</label>
                   <input type="email" name="email" class="input-underline" placeholder="email@empresa.com" required>
                 </div>
               </div>
 
               <div>
-                <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Tipo de proyecto</label>
+                <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Tipo de
+                  proyecto</label>
                 <select name="type" class="input-underline cursor-pointer">
                   <option>Plataforma Web / SaaS</option>
                   <option>Aplicación móvil (iOS / Android)</option>
@@ -784,11 +958,14 @@
               </div>
 
               <div>
-                <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Detalles del reto</label>
-                <textarea name="message" rows="4" class="input-underline resize-none" placeholder="Describe brevemente qué quieres construir..." required></textarea>
+                <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Detalles
+                  del reto</label>
+                <textarea name="message" rows="4" class="input-underline resize-none"
+                  placeholder="Describe brevemente qué quieres construir..." required></textarea>
               </div>
 
-              <button type="submit" class="btn-primary w-full py-5 text-xs uppercase mt-6 inline-flex items-center justify-center gap-3">
+              <button type="submit"
+                class="btn-primary w-full py-5 text-xs uppercase mt-6 inline-flex items-center justify-center gap-3">
                 Enviar solicitud
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
@@ -834,9 +1011,15 @@
         <div class="md:col-span-2">
           <div class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow font-semibold mb-4">Conecta</div>
           <div class="flex gap-3">
-            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/60 hover:text-bn-yellow hover:border-bn-yellow transition"><i class="fa-brands fa-github"></i></a>
-            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/60 hover:text-bn-yellow hover:border-bn-yellow transition"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/60 hover:text-bn-yellow hover:border-bn-yellow transition"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"
+              class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/60 hover:text-bn-yellow hover:border-bn-yellow transition"><i
+                class="fa-brands fa-github"></i></a>
+            <a href="#"
+              class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/60 hover:text-bn-yellow hover:border-bn-yellow transition"><i
+                class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"
+              class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/60 hover:text-bn-yellow hover:border-bn-yellow transition"><i
+                class="fa-brands fa-x-twitter"></i></a>
           </div>
         </div>
       </div>
@@ -862,6 +1045,34 @@
         navbar.classList.add('bg-transparent', 'py-5');
       }
     });
+
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileIcon = document.getElementById('mobile-menu-icon');
+
+    const closeMobileMenu = () => {
+      mobileMenu.classList.add('hidden');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileIcon.classList.remove('fa-xmark');
+      mobileIcon.classList.add('fa-bars');
+    };
+
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        mobileMenu.classList.remove('hidden');
+        mobileToggle.setAttribute('aria-expanded', 'true');
+        mobileIcon.classList.remove('fa-bars');
+        mobileIcon.classList.add('fa-xmark');
+      }
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
   </script>
 </body>
+
 </html>
