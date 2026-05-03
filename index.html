@@ -3,329 +3,793 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BananasDev | Agencia de Software</title>
-  
+  <title>BananasDev | Desarrollo de software a medida</title>
+
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  
+
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    body { font-family: 'Poppins', sans-serif; background-color: #0a0a0a; color: #f3f3f3; overflow-x: hidden; }
-    
     :root {
-      --primary: #FFD700; 
-      --primary-dark: #c7a700;
-    }
-    .text-primary { color: var(--primary); }
-    .bg-primary { background-color: var(--primary); }
-    .border-primary { border-color: var(--primary); }
-
-    /* Fondo Animado Gradiente */
-    .animate-gradient-bg {
-      background: linear-gradient(-45deg, #050505, #1a1a00, #222, #050505);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-    }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      --bn-black:   #000000;
+      --bn-yellow:  #FFDD00;
+      --bn-yellow-d:#e6c700;
+      --bn-white:   #FFFFFF;
+      --bn-blue:    #235789;
+      --bn-blue-l:  #2d6ba6;
+      --bn-brown:   #533E2D;
+      --bn-brown-l: #6e5340;
+      --bn-bg:      #0a0a0a;
+      --bn-surface: #111111;
+      --bn-surface-2:#161616;
+      --bn-border:  rgba(255, 255, 255, 0.08);
+      --bn-muted:   #9ca3af;
     }
 
-    /* Patrón de fondo sutil */
-    .bg-grid-pattern {
-      background-image: radial-gradient(rgba(255, 215, 0, 0.1) 1px, transparent 1px);
-      background-size: 30px 30px;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bn-bg);
+      color: var(--bn-white);
+      overflow-x: hidden;
+      font-weight: 400;
     }
 
-    /* Tarjetas con efecto Glass */
-    .glass-card {
-      background: rgba(20, 20, 20, 0.6);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 215, 0, 0.1);
-      transition: all 0.4s ease;
-    }
-    .glass-card:hover {
-      border-color: var(--primary);
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+    .text-bn-yellow { color: var(--bn-yellow); }
+    .text-bn-blue { color: var(--bn-blue-l); }
+    .bg-bn-yellow { background-color: var(--bn-yellow); }
+    .bg-bn-blue { background-color: var(--bn-blue); }
+    .bg-bn-brown { background-color: var(--bn-brown); }
+    .border-bn-yellow { border-color: var(--bn-yellow); }
+    .text-bn-muted { color: var(--bn-muted); }
+
+    /* Patrón de fondo: rejilla técnica sutil tipo blueprint */
+    .bg-blueprint {
+      background-image:
+        linear-gradient(rgba(35, 87, 137, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(35, 87, 137, 0.08) 1px, transparent 1px);
+      background-size: 60px 60px;
     }
 
-    /* Navbar transition */
-    #navbar { transition: all 0.3s ease-in-out; }
-    #navbar.scrolled { background-color: rgba(0, 0, 0, 0.95); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); padding-top: 10px; padding-bottom: 10px; }
+    /* Halo radial para el hero */
+    .hero-glow {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255, 221, 0, 0.10), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(35, 87, 137, 0.18), transparent 60%),
+        radial-gradient(ellipse 50% 50% at 15% 70%, rgba(83, 62, 45, 0.18), transparent 60%);
+    }
+
+    /* Marquee bar */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      animation: marquee 35s linear infinite;
+      width: max-content;
+    }
+
+    .card {
+      background-color: var(--bn-surface);
+      border: 1px solid var(--bn-border);
+      transition: border-color .3s ease, transform .3s ease, background-color .3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      border-color: var(--bn-yellow);
+      transform: translateY(-4px);
+    }
+
+    /* Corner accents en cards */
+    .card-corner::before,
+    .card-corner::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-color: var(--bn-yellow);
+      transition: opacity .3s ease;
+      opacity: 0;
+    }
+    .card-corner::before {
+      top: 10px; left: 10px;
+      border-top: 1px solid;
+      border-left: 1px solid;
+    }
+    .card-corner::after {
+      bottom: 10px; right: 10px;
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+    }
+    .card-corner:hover::before,
+    .card-corner:hover::after { opacity: 1; }
+
+    /* Number badge */
+    .num-badge {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+
+    .nav-link {
+      position: relative;
+      color: rgba(255, 255, 255, 0.65);
+      transition: color .2s ease;
+    }
+    .nav-link:hover { color: var(--bn-white); }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -6px;
+      width: 0; height: 2px;
+      background: var(--bn-yellow);
+      transition: width .25s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .input-underline {
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--bn-border);
+      border-radius: 0;
+      padding: 0.85rem 0;
+      color: var(--bn-white);
+      width: 100%;
+      transition: border-color .25s ease;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    .input-underline:focus {
+      outline: none;
+      border-bottom-color: var(--bn-yellow);
+    }
+    .input-underline::placeholder { color: rgba(255, 255, 255, 0.3); }
+
+    select.input-underline option {
+      background-color: var(--bn-surface);
+      color: var(--bn-white);
+    }
+
+    #navbar { transition: background-color .25s ease, border-color .25s ease, padding .25s ease; }
+    #navbar.scrolled {
+      background-color: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .btn-primary {
+      background-color: var(--bn-yellow);
+      color: var(--bn-black);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+      position: relative;
+    }
+    .btn-primary:hover {
+      background-color: var(--bn-white);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(255, 221, 0, 0.4);
+    }
+
+    .btn-ghost {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--bn-white);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      transition: border-color .2s ease, color .2s ease, background-color .2s ease;
+    }
+    .btn-ghost:hover {
+      border-color: var(--bn-yellow);
+      color: var(--bn-yellow);
+      background-color: rgba(255, 221, 0, 0.04);
+    }
+
+    /* Eyebrow style */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--bn-yellow);
+    }
+    .eyebrow::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--bn-yellow);
+    }
+
+    /* Big section title */
+    .section-title {
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1;
+    }
+
+    /* Process card */
+    .process-step {
+      position: relative;
+      padding: 2rem 1.5rem;
+      border-top: 1px solid var(--bn-border);
+      transition: background-color .3s ease;
+    }
+    .process-step:hover { background-color: rgba(255, 221, 0, 0.03); }
+    .process-step .step-num {
+      font-weight: 200;
+      color: var(--bn-yellow);
+      font-size: 4rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    /* Team avatar ring */
+    .avatar-ring {
+      position: relative;
+    }
+    .avatar-ring::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 221, 0, 0.25);
+      transition: transform .6s ease, border-color .3s ease;
+    }
+    .group:hover .avatar-ring::before {
+      transform: rotate(180deg);
+      border-color: var(--bn-yellow);
+    }
+
+    /* Stat block */
+    .stat-block {
+      border-left: 2px solid var(--bn-yellow);
+      padding-left: 1rem;
+    }
+
+    /* Glow text on yellow */
+    .text-glow-yellow {
+      text-shadow: 0 0 40px rgba(255, 221, 0, 0.3);
+    }
   </style>
 </head>
 <body class="antialiased">
 
-  <nav id="navbar" class="fixed w-full z-50 bg-transparent border-b border-white/5 py-4">
+  <nav id="navbar" class="fixed w-full z-50 bg-transparent py-5">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      
-      <a href="#" class="flex items-center gap-3 group">
-        <img src="assets/logo.png" alt="Logo BananasDev" class="h-10 w-auto group-hover:scale-110 transition duration-300">
-        <img src="assets/letras.png" alt="BananasDev Texto" class="h-6 w-auto mt-1 filter brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition duration-300" style="filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));"> 
+
+      <a href="#" class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="Logo BananasDev" class="h-10 w-auto">
+        <img src="assets/letras.png" alt="BananasDev" class="h-5 w-auto">
       </a>
-      
-      <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest items-center">
-        <a href="#services" class="hover:text-primary transition relative group">Servicios <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span></a>
-        <a href="#team" class="hover:text-primary transition relative group">Equipo <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span></a>
-        <a href="#process" class="hover:text-primary transition relative group">Proceso <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span></a>
-        <a href="#contact" class="ml-4 px-6 py-3 bg-primary text-black rounded font-bold hover:bg-yellow-500 transition transform hover:-translate-y-1 shadow-lg shadow-primary/20">
-          Cotizar Ahora
+
+      <div class="hidden md:flex gap-10 text-[11px] font-semibold uppercase tracking-[0.25em] items-center">
+        <a href="#services" class="nav-link">Servicios</a>
+        <a href="#team" class="nav-link">Equipo</a>
+        <a href="#process" class="nav-link">Proceso</a>
+        <a href="#values" class="nav-link">Filosofía</a>
+        <a href="#contact" class="btn-primary px-5 py-3 text-[11px]">
+          Cotizar <i class="fa-solid fa-arrow-right ml-1 text-[10px]"></i>
         </a>
       </div>
-      <button class="md:hidden text-2xl text-white"><i class="fa-solid fa-bars"></i></button>
+      <button class="md:hidden text-xl text-white" aria-label="Menú"><i class="fa-solid fa-bars"></i></button>
     </div>
   </nav>
 
-  <header class="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden animate-gradient-bg">
-    <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
-    
-    <div class="max-w-6xl text-center space-y-8 relative z-10" data-aos="zoom-out-up" data-aos-duration="1000">
-      
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-black/50 backdrop-blur text-sm font-bold text-primary mb-4 tracking-wider uppercase animate-bounce">
-        <span class="w-2 h-2 bg-primary rounded-full"></span> Agencia de Software
+  <header class="relative min-h-screen flex items-center pt-24 px-6 overflow-hidden hero-glow">
+    <div class="absolute inset-0 bg-blueprint opacity-50 pointer-events-none"></div>
+
+    <!-- Gran palabra de fondo -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+      <span class="text-[18vw] md:text-[14vw] font-black text-white/[0.025] tracking-tighter select-none whitespace-nowrap">BANANAS DEV</span>
+    </div>
+
+    <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
+
+      <div class="lg:col-span-8 space-y-8" data-aos="fade-up">
+        <div class="eyebrow">Desarrollo de software a medida</div>
+
+        <h1 class="section-title text-5xl md:text-7xl lg:text-8xl text-white">
+          Convertimos<br>
+          <span class="text-bn-yellow text-glow-yellow">ideas complejas</span><br>
+          en software <span class="italic font-light text-white/80">real</span>.
+        </h1>
+
+        <p class="text-lg text-bn-muted max-w-xl leading-relaxed font-light" data-aos="fade-up" data-aos-delay="100">
+          Somos un socio estratégico para tu transformación digital. Construimos ecosistemas digitales fluidos, escalables y centrados en tu negocio.
+        </p>
+
+        <div class="flex flex-wrap gap-4 pt-2" data-aos="fade-up" data-aos-delay="200">
+          <a href="#contact" class="btn-primary px-8 py-4 text-xs uppercase inline-flex items-center gap-2">
+            Iniciar proyecto <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#team" class="btn-ghost px-8 py-4 text-xs uppercase">
+            Conocer al equipo
+          </a>
+        </div>
       </div>
-      
-      <h1 class="text-5xl md:text-8xl font-black leading-tight text-white drop-shadow-2xl">
-        TRANSFORMAMOS IDEAS <br>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-yellow-200 to-primary">EN SOFTWARE REAL</span>
-      </h1>
-      
-      <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light" data-aos="fade-up" data-aos-delay="200">
-        En <strong>BananasDev</strong> creamos soluciones digitales a medida. Desde aplicaciones móviles hasta sistemas empresariales complejos.
-      </p>
-      
-      <div class="flex flex-wrap justify-center gap-5 pt-8" data-aos="fade-up" data-aos-delay="400">
-        <a href="#contact" class="px-10 py-4 bg-primary text-black font-black rounded hover:bg-yellow-400 transition transform hover:scale-105 shadow-[0_0_20px_rgba(255,215,0,0.4)] uppercase tracking-widest text-sm flex items-center gap-3">
-          <i class="fa-solid fa-rocket"></i> Iniciar Proyecto
-        </a>
-        <a href="#team" class="px-10 py-4 border border-white/20 text-white font-bold rounded hover:bg-white/10 hover:border-primary transition uppercase tracking-widest text-sm flex items-center gap-3">
-          Conocer al Equipo
-        </a>
+
+      <!-- Stats laterales -->
+      <div class="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="stat-block">
+          <div class="text-3xl font-bold text-white">4+</div>
+          <div class="text-xs uppercase tracking-[0.2em] text-bn-muted mt-1">Especialistas</div>
+        </div>
+        <div class="stat-block" style="border-left-color: var(--bn-blue-l);">
+          <div class="text-3xl font-bold text-white">100%</div>
+          <div class="text-xs uppercase tracking-[0.2em] text-bn-muted mt-1">Código a medida</div>
+        </div>
+        <div class="stat-block" style="border-left-color: var(--bn-brown-l);">
+          <div class="text-3xl font-bold text-white">24/7</div>
+          <div class="text-xs uppercase tracking-[0.2em] text-bn-muted mt-1">Soporte continuo</div>
+        </div>
       </div>
     </div>
 
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-primary animate-bounce">
-      <i class="fa-solid fa-chevron-down text-3xl opacity-80"></i>
+    <!-- Indicador inferior -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 text-[10px] uppercase tracking-[0.4em] flex flex-col items-center gap-2">
+      <span>Scroll</span>
+      <div class="w-px h-8 bg-gradient-to-b from-bn-yellow to-transparent"></div>
     </div>
   </header>
 
-  <section id="services" class="py-24 bg-[#0a0a0a] relative">
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-20" data-aos="fade-down">
-        <span class="text-primary font-bold tracking-[0.3em] uppercase text-xs">Lo que hacemos</span>
-        <h2 class="text-4xl md:text-5xl font-black mt-2 text-white uppercase">Nuestros <span class="text-primary">Servicios</span></h2>
+  <!-- Marquee de tecnologías -->
+  <section class="py-8 border-y border-white/5 bg-black/40 overflow-hidden">
+    <div class="marquee-track text-white/30 text-sm uppercase tracking-[0.3em] font-medium gap-12 whitespace-nowrap">
+      <div class="flex gap-12 px-6">
+        <span>Laravel</span><span class="text-bn-yellow">●</span>
+        <span>React</span><span class="text-bn-yellow">●</span>
+        <span>Flutter</span><span class="text-bn-yellow">●</span>
+        <span>Node.js</span><span class="text-bn-yellow">●</span>
+        <span>Python</span><span class="text-bn-yellow">●</span>
+        <span>AWS</span><span class="text-bn-yellow">●</span>
+        <span>Docker</span><span class="text-bn-yellow">●</span>
+        <span>PostgreSQL</span><span class="text-bn-yellow">●</span>
+        <span>TypeScript</span><span class="text-bn-yellow">●</span>
+        <span>OpenAI</span><span class="text-bn-yellow">●</span>
       </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass-card p-10 rounded-2xl group js-tilt" data-tilt data-tilt-max="5" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:rotate-6 shadow-lg">
-            <i class="fa-solid fa-code"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-primary transition">Desarrollo Web</h3>
-          <p class="text-gray-400 leading-relaxed text-sm">Plataformas robustas y escalables. Backends complejos con Laravel y frontends reactivos de alto rendimiento.</p>
-        </div>
-
-        <div class="glass-card p-10 rounded-2xl group js-tilt" data-tilt data-tilt-max="5" data-aos="fade-up" data-aos-delay="200">
-          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:-rotate-6 shadow-lg">
-            <i class="fa-solid fa-mobile-screen"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-primary transition">Apps Móviles</h3>
-          <p class="text-gray-400 leading-relaxed text-sm">Desarrollo nativo y multiplataforma (Flutter). Llevamos tu negocio al bolsillo de tus clientes.</p>
-        </div>
-
-        <div class="glass-card p-10 rounded-2xl group js-tilt" data-tilt data-tilt-max="5" data-aos="fade-up" data-aos-delay="300">
-          <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-3xl text-primary mb-6 group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:rotate-6 shadow-lg">
-            <i class="fa-solid fa-robot"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-primary transition">Soluciones IA</h3>
-          <p class="text-gray-400 leading-relaxed text-sm">Automatización inteligente, integración de Chatbots y análisis de datos para optimizar procesos.</p>
-        </div>
+      <div class="flex gap-12 px-6" aria-hidden="true">
+        <span>Laravel</span><span class="text-bn-yellow">●</span>
+        <span>React</span><span class="text-bn-yellow">●</span>
+        <span>Flutter</span><span class="text-bn-yellow">●</span>
+        <span>Node.js</span><span class="text-bn-yellow">●</span>
+        <span>Python</span><span class="text-bn-yellow">●</span>
+        <span>AWS</span><span class="text-bn-yellow">●</span>
+        <span>Docker</span><span class="text-bn-yellow">●</span>
+        <span>PostgreSQL</span><span class="text-bn-yellow">●</span>
+        <span>TypeScript</span><span class="text-bn-yellow">●</span>
+        <span>OpenAI</span><span class="text-bn-yellow">●</span>
       </div>
     </div>
   </section>
 
-  <section id="team" class="py-24 relative overflow-hidden bg-grid-pattern">
-    <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]"></div>
-    <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-20" data-aos="fade-down">
-        <span class="text-primary font-bold tracking-[0.2em] uppercase text-xs">Squad</span>
-        <h2 class="text-4xl md:text-5xl font-black mt-2 uppercase text-white">Talento <span class="text-primary">Humano</span></h2>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-8">
-        
-        <a href="https://alexisreynaga.github.io/portafolio/" target="_blank" class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt block transform transition hover:-translate-y-2" data-tilt data-tilt-glare data-tilt-max-glare="0.2" data-aos="zoom-in" data-aos-delay="100">
-          <div class="h-28 bg-gradient-to-tr from-primary/80 to-yellow-600/80 relative">
-             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30"></div>
-          </div>
-          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] overflow-hidden shadow-2xl group-hover:scale-105 transition duration-500">
-            <img src="assets/alexis.jpeg" alt="Alexis" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-black text-white uppercase group-hover:text-primary transition">Alexis Reynaga <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1 opacity-0 group-hover:opacity-100"></i></h3>
-            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">CEO & Lead Architect</p>
-            <p class="text-gray-400 text-xs font-medium">Líder técnico. Especialista en arquitectura de software y estrategia.</p>
-          </div>
-        </a>
-
-        <a href="https://github.com/ELIMSS50" target="_blank" class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt block transform transition hover:-translate-y-2" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-aos="zoom-in" data-aos-delay="200">
-          <div class="h-28 bg-gradient-to-tr from-blue-700 to-cyan-600"></div>
-          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] bg-gray-800 flex items-center justify-center text-4xl text-gray-500 overflow-hidden group-hover:scale-105 transition duration-500 bg-gray-800">
-            <img src="assets/luis.jpeg" alt="Luis Rodriguez" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-black text-white uppercase group-hover:text-primary transition">Luis Rodriguez <i class="fa-brands fa-github text-xs ml-1 opacity-0 group-hover:opacity-100"></i></h3>
-            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">Senior Backend Dev</p>
-            <p class="text-gray-400 text-xs font-medium">Experto en lógica de servidor, bases de datos y seguridad.</p>
-          </div>
-        </a>
-
-        <a href="https://siraxlord.github.io" target="_blank" class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt block transform transition hover:-translate-y-2" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-aos="zoom-in" data-aos-delay="300">
-          <div class="h-28 bg-gradient-to-tr from-green-600 to-emerald-500"></div>
-          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] bg-gray-800 flex items-center justify-center text-4xl text-gray-500 overflow-hidden group-hover:scale-105 transition duration-500 bg-gray-800">
-            <img src="assets/axel.jpg" alt="Axel Loredo" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-black text-white uppercase group-hover:text-primary transition">Axel Loredo <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1 opacity-0 group-hover:opacity-100"></i></h3>
-            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">Full-Stack Developer</p>
-            <p class="text-gray-400 text-xs font-medium">Desarrollo Integral, Stack MERN/MEAN & UI/UX.</p>
-          </div>
-        </a>
-
-        <a href="https://github.com/rica-2000" target="_blank" class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt block transform transition hover:-translate-y-2" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-aos="zoom-in" data-aos-delay="400">
-          <div class="h-28 bg-gradient-to-tr from-orange-600 to-red-500"></div>
-          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] bg-gray-800 flex items-center justify-center text-4xl text-gray-500 overflow-hidden group-hover:scale-105 transition duration-500 bg-gray-800">
-            <img src="assets/rica.jpeg" alt="Ricardo Salinas" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-black text-white uppercase group-hover:text-primary transition">Ricardo Salinas <i class="fa-brands fa-github text-xs ml-1 opacity-0 group-hover:opacity-100"></i></h3>
-            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">Mobile Specialist</p>
-            <p class="text-gray-400 text-xs font-medium">Desarrollo de aplicaciones nativas y optimización móvil.</p>
-          </div>
-        </a>
-
-        <a href="https://github.com/KevinDon10" target="_blank" class="w-full sm:w-[260px] glass-card rounded-2xl overflow-hidden text-center group js-tilt block transform transition hover:-translate-y-2" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-aos="zoom-in" data-aos-delay="500">
-          <div class="h-28 bg-gradient-to-tr from-indigo-500 to-pink-500"></div>
-          <div class="relative w-32 h-32 mx-auto -mt-16 rounded-full border-4 border-[#0a0a0a] bg-gray-800 flex items-center justify-center text-4xl text-gray-500 overflow-hidden group-hover:scale-105 transition duration-500 bg-gray-800">
-            <img src="assets/kevin.jpeg" alt="Kevin Don" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-black text-white uppercase group-hover:text-primary transition">Kevin Don <i class="fa-brands fa-github text-xs ml-1 opacity-0 group-hover:opacity-100"></i></h3>
-            <p class="text-primary text-[10px] font-bold uppercase tracking-widest mb-3 border-b border-white/10 pb-3">Data & AI Engineer</p>
-            <p class="text-gray-400 text-xs font-medium">Ciencia de datos, aprendizaje automático e implementaciones de IA.</p>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="process" class="py-24 bg-primary text-black relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-
-    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
-      <h2 class="text-4xl md:text-5xl font-black mb-16 uppercase" data-aos="fade-up">Nuestro <span class="text-white">Flujo</span> de Trabajo</h2>
-      
-      <div class="grid md:grid-cols-4 gap-8">
-        <div class="relative group" data-aos="fade-up" data-aos-delay="100">
-          <div class="w-20 h-20 bg-black text-primary rounded-2xl flex items-center justify-center text-3xl font-black mx-auto mb-6 border-4 border-white/20 shadow-xl transform group-hover:rotate-12 transition duration-300">1</div>
-          <h4 class="font-bold text-xl uppercase mb-2">Discovery</h4>
-          <p class="font-medium opacity-80 text-sm">Análisis de requerimientos y objetivos.</p>
+  <!-- SERVICIOS -->
+  <section id="services" class="py-32 relative">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-12 gap-8 mb-16 items-end">
+        <div class="md:col-span-7" data-aos="fade-up">
+          <div class="eyebrow mb-4">01 — Lo que hacemos</div>
+          <h2 class="section-title text-4xl md:text-6xl text-white">
+            Servicios que <span class="text-bn-yellow">escalan</span> contigo.
+          </h2>
         </div>
-        <div class="relative group" data-aos="fade-up" data-aos-delay="200">
-          <div class="w-20 h-20 bg-black text-primary rounded-2xl flex items-center justify-center text-3xl font-black mx-auto mb-6 border-4 border-white/20 shadow-xl transform group-hover:-rotate-12 transition duration-300">2</div>
-          <h4 class="font-bold text-xl uppercase mb-2">Diseño</h4>
-          <p class="font-medium opacity-80 text-sm">Prototipado UI/UX y arquitectura.</p>
-        </div>
-        <div class="relative group" data-aos="fade-up" data-aos-delay="300">
-          <div class="w-20 h-20 bg-black text-primary rounded-2xl flex items-center justify-center text-3xl font-black mx-auto mb-6 border-4 border-white/20 shadow-xl transform group-hover:rotate-12 transition duration-300">3</div>
-          <h4 class="font-bold text-xl uppercase mb-2">Código</h4>
-          <p class="font-medium opacity-80 text-sm">Desarrollo ágil y pruebas.</p>
-        </div>
-        <div class="relative group" data-aos="fade-up" data-aos-delay="400">
-          <div class="w-20 h-20 bg-black text-primary rounded-2xl flex items-center justify-center text-3xl font-black mx-auto mb-6 border-4 border-white/20 shadow-xl transform group-hover:-rotate-12 transition duration-300">4</div>
-          <h4 class="font-bold text-xl uppercase mb-2">Lanzamiento</h4>
-          <p class="font-medium opacity-80 text-sm">Deploy y soporte continuo.</p>
+        <div class="md:col-span-5" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-bn-muted text-base leading-relaxed font-light">
+            Cada producto se diseña con arquitectura robusta, agilidad iterativa y excelencia técnica. No vendemos plantillas: construimos tecnología hecha a la medida de tu operación.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="contact" class="py-24 bg-[#0a0a0a] relative">
-    <div class="max-w-4xl mx-auto px-6 relative z-10" data-aos="zoom-in-up">
-      <div class="glass-card rounded-3xl p-10 md:p-16 border border-white/10 shadow-2xl relative overflow-hidden">
-        <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
-
-        <div class="text-center mb-12 relative">
-          <h2 class="text-4xl font-black text-white uppercase">¿Listo para <span class="text-primary">Innovar</span>?</h2>
-          <p class="text-gray-400 mt-4 text-lg">Cuéntanos tu idea. Nosotros ponemos el código.</p>
-        </div>
-
-        <form action="https://formspree.io/f/xgvglnja" method="POST" class="space-y-8 relative">
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="group">
-              <label class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Tu Nombre</label>
-              <input type="text" name="name" class="w-full bg-[#1a1a1a]/80 border-2 border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-primary transition-all duration-300 group-hover:border-primary/50" placeholder="Nombre completo" required>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="card card-corner p-10 group" data-aos="fade-up" data-aos-delay="0">
+          <div class="flex items-start justify-between mb-8">
+            <div class="w-14 h-14 bg-bn-yellow/10 border border-bn-yellow/20 flex items-center justify-center text-2xl text-bn-yellow">
+              <i class="fa-solid fa-code"></i>
             </div>
-            <div class="group">
-              <label class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Email Corporativo</label>
-              <input type="email" name="email" class="w-full bg-[#1a1a1a]/80 border-2 border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-primary transition-all duration-300 group-hover:border-primary/50" placeholder="email@empresa.com" required>
+            <span class="text-xs text-white/30 font-mono">/ 01</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white">Desarrollo Web</h3>
+          <p class="text-bn-muted leading-relaxed text-sm font-light mb-6">
+            Plataformas robustas y escalables. Backends complejos con Laravel, Node y arquitecturas serverless. Frontends reactivos de alto rendimiento con React, Vue o Astro.
+          </p>
+          <ul class="space-y-2 text-xs text-white/60">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bn-yellow text-[10px]"></i> SaaS multi-tenant</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bn-yellow text-[10px]"></i> APIs REST &amp; GraphQL</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-bn-yellow text-[10px]"></i> Sistemas empresariales</li>
+          </ul>
+        </div>
+
+        <div class="card card-corner p-10 group" data-aos="fade-up" data-aos-delay="100" style="background: linear-gradient(180deg, var(--bn-surface) 0%, rgba(35, 87, 137, 0.08) 100%);">
+          <div class="flex items-start justify-between mb-8">
+            <div class="w-14 h-14 flex items-center justify-center text-2xl text-white" style="background-color: rgba(35, 87, 137, 0.18); border: 1px solid rgba(35, 87, 137, 0.4);">
+              <i class="fa-solid fa-mobile-screen"></i>
             </div>
+            <span class="text-xs text-white/30 font-mono">/ 02</span>
           </div>
-          
-          <div class="group">
-            <label class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Tipo de Proyecto</label>
-            <select name="type" class="w-full bg-[#1a1a1a]/80 border-2 border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-primary transition-all duration-300 cursor-pointer group-hover:border-primary/50">
-              <option class="bg-[#1a1a1a]">Plataforma Web / SaaS</option>
-              <option class="bg-[#1a1a1a]">Aplicación Móvil (iOS/Android)</option>
-              <option class="bg-[#1a1a1a]">E-Commerce a Medida</option>
-              <option class="bg-[#1a1a1a]">Integración de IA / Chatbot</option>
-            </select>
-          </div>
+          <h3 class="text-2xl font-bold mb-4 text-white">Aplicaciones Móviles</h3>
+          <p class="text-bn-muted leading-relaxed text-sm font-light mb-6">
+            Desarrollo nativo y multiplataforma con Flutter y React Native. Llevamos tu negocio al bolsillo de tus clientes con experiencias fluidas y nativas.
+          </p>
+          <ul class="space-y-2 text-xs text-white/60">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-blue-l);"></i> iOS &amp; Android nativo</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-blue-l);"></i> Apps híbridas Flutter</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-blue-l);"></i> Notificaciones &amp; offline</li>
+          </ul>
+        </div>
 
-          <div class="group">
-            <label class="text-xs text-primary font-bold uppercase tracking-wider mb-2 block">Detalles del Reto</label>
-            <textarea name="message" rows="5" class="w-full bg-[#1a1a1a]/80 border-2 border-white/10 rounded-lg p-4 text-white focus:outline-none focus:border-primary transition-all duration-300 resize-none group-hover:border-primary/50" placeholder="Describe brevemente qué quieres construir..." required></textarea>
+        <div class="card card-corner p-10 group" data-aos="fade-up" data-aos-delay="200" style="background: linear-gradient(180deg, var(--bn-surface) 0%, rgba(83, 62, 45, 0.12) 100%);">
+          <div class="flex items-start justify-between mb-8">
+            <div class="w-14 h-14 flex items-center justify-center text-2xl text-white" style="background-color: rgba(83, 62, 45, 0.25); border: 1px solid rgba(110, 83, 64, 0.5);">
+              <i class="fa-solid fa-robot"></i>
+            </div>
+            <span class="text-xs text-white/30 font-mono">/ 03</span>
           </div>
-
-          <button type="submit" class="w-full bg-primary text-black font-black text-lg py-5 rounded-lg transition-all transform hover:scale-[1.02] hover:bg-yellow-400 shadow-2xl shadow-primary/30 uppercase tracking-widest flex items-center justify-center gap-3 relative overflow-hidden group">
-            <span class="relative z-10">Enviar Solicitud</span>
-            <i class="fa-solid fa-paper-plane relative z-10 group-hover:translate-x-2 transition-transform"></i>
-            <div class="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-          </button>
-        </form>
+          <h3 class="text-2xl font-bold mb-4 text-white">Soluciones de IA</h3>
+          <p class="text-bn-muted leading-relaxed text-sm font-light mb-6">
+            Automatización inteligente, integración de chatbots conversacionales y análisis de datos. Convertimos tu información en decisiones operativas.
+          </p>
+          <ul class="space-y-2 text-xs text-white/60">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-brown-l);"></i> Chatbots con LLMs</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-brown-l);"></i> ML &amp; predicciones</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[10px]" style="color: var(--bn-brown-l);"></i> RAG &amp; agentes</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer class="py-12 bg-black border-t border-white/5 text-center relative z-10">
-    <div class="flex items-center justify-center gap-2 mb-4 group cursor-pointer">
-      <img src="assets/logo.png" alt="Logo" class="h-8 w-auto grayscale group-hover:grayscale-0 transition">
-      <img src="assets/letras.png" alt="Letras" class="h-5 w-auto filter brightness-50 group-hover:brightness-100 transition">
+  <!-- VALORES / FILOSOFÍA -->
+  <section id="values" class="py-32 relative overflow-hidden" style="background-color: #07070a;">
+    <div class="absolute inset-0 bg-blueprint opacity-30 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+      <div class="grid md:grid-cols-12 gap-8 mb-16">
+        <div class="md:col-span-5" data-aos="fade-up">
+          <div class="eyebrow mb-4">02 — Filosofía</div>
+          <h2 class="section-title text-4xl md:text-6xl text-white">
+            La esencia<br><span class="text-bn-yellow">Bananas Dev</span>.
+          </h2>
+        </div>
+        <div class="md:col-span-7 flex items-end" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-bn-muted text-base leading-relaxed font-light">
+            No somos solo una empresa de código. Somos un socio estratégico para la transformación digital. Nuestra marca representa <span class="text-white">agilidad, precisión y arquitectura robusta</span>.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-px bg-white/5">
+        <div class="bg-[var(--bn-bg)] p-10 group hover:bg-bn-yellow transition-colors duration-500" data-aos="fade-up">
+          <div class="num-badge text-bn-yellow group-hover:text-black transition-colors mb-6">01</div>
+          <h3 class="text-xl font-bold text-white group-hover:text-black transition-colors mb-3 uppercase tracking-wider">Transparencia</h3>
+          <p class="text-sm text-bn-muted group-hover:text-black/70 transition-colors font-light leading-relaxed">
+            Comunicación clara en cada etapa. Sin sorpresas, sin letra chica. Acceso directo al equipo y al avance del producto.
+          </p>
+        </div>
+
+        <div class="bg-[var(--bn-bg)] p-10 group transition-colors duration-500" style="--hover-bg: var(--bn-blue);" data-aos="fade-up" data-aos-delay="100"
+             onmouseover="this.style.backgroundColor='var(--bn-blue)'" onmouseout="this.style.backgroundColor=''">
+          <div class="num-badge transition-colors mb-6" style="color: var(--bn-blue-l);">02</div>
+          <h3 class="text-xl font-bold text-white transition-colors mb-3 uppercase tracking-wider">Agilidad</h3>
+          <p class="text-sm text-bn-muted transition-colors font-light leading-relaxed">
+            Entrega iterativa de valor. Sprints cortos, feedback constante. Ves el producto crecer semana a semana.
+          </p>
+        </div>
+
+        <div class="bg-[var(--bn-bg)] p-10 group transition-colors duration-500" data-aos="fade-up" data-aos-delay="200"
+             onmouseover="this.style.backgroundColor='var(--bn-brown)'" onmouseout="this.style.backgroundColor=''">
+          <div class="num-badge transition-colors mb-6" style="color: var(--bn-brown-l);">03</div>
+          <h3 class="text-xl font-bold text-white transition-colors mb-3 uppercase tracking-wider">Excelencia</h3>
+          <p class="text-sm text-bn-muted transition-colors font-light leading-relaxed">
+            Código limpio y escalable. Testeo, revisión por pares y arquitectura pensada para crecer sin deuda técnica.
+          </p>
+        </div>
+      </div>
     </div>
-    <p class="text-gray-600 text-xs mt-6">© 2025 BananasDev. Todos los derechos reservados.</p>
+  </section>
+
+  <!-- EQUIPO -->
+  <section id="team" class="py-32 relative">
+    <div class="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(255, 221, 0, 0.04), transparent 70%);"></div>
+    <div class="max-w-7xl mx-auto px-6 relative">
+
+      <div class="grid md:grid-cols-12 gap-8 mb-16 items-end">
+        <div class="md:col-span-7" data-aos="fade-up">
+          <div class="eyebrow mb-4">03 — Squad</div>
+          <h2 class="section-title text-4xl md:text-6xl text-white">
+            El talento detrás<br>del <span class="text-bn-yellow">código</span>.
+          </h2>
+        </div>
+        <div class="md:col-span-5" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-bn-muted text-base leading-relaxed font-light">
+            Un grupo multidisciplinario de ingenieros y diseñadores. Cada uno aporta una especialidad, todos comparten un estándar.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <a href="https://alexisreynaga.github.io/" target="_blank" rel="noopener" class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="0">
+          <div class="avatar-ring w-24 h-24 mx-auto mb-6">
+            <div class="w-full h-full rounded-full overflow-hidden border-2" style="border-color: var(--bn-yellow);">
+              <img src="assets/alexis.jpeg" alt="Alexis Reynaga" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">
+            Alexis Reynaga
+            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1 text-bn-yellow"></i>
+          </h3>
+          <p class="text-[9px] text-bn-yellow uppercase tracking-[0.2em] font-bold mb-3">Frontend &amp; Deploy</p>
+          <div class="w-6 h-px bg-white/10 mx-auto mb-3"></div>
+          <p class="text-bn-muted text-xs font-light leading-relaxed">Interfaces reactivas, despliegue en cloud y configuración de infraestructura.</p>
+        </a>
+
+        <a href="https://github.com/ELIMSS50" target="_blank" rel="noopener" class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="50">
+          <div class="avatar-ring w-24 h-24 mx-auto mb-6">
+            <div class="w-full h-full rounded-full overflow-hidden border-2" style="border-color: var(--bn-blue-l);">
+              <img src="assets/luis.jpeg" alt="Luis Rodriguez" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">
+            Luis Rodriguez
+            <i class="fa-brands fa-github text-[10px] ml-1 text-white/60"></i>
+          </h3>
+          <p class="text-[9px] uppercase tracking-[0.2em] font-bold mb-3" style="color: var(--bn-blue-l);">Data Analyst &amp; DB</p>
+          <div class="w-6 h-px bg-white/10 mx-auto mb-3"></div>
+          <p class="text-bn-muted text-xs font-light leading-relaxed">Análisis de datos, modelado y administración de bases de datos.</p>
+        </a>
+
+        <a href="https://siraxlord.github.io" target="_blank" rel="noopener" class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="100">
+          <div class="avatar-ring w-24 h-24 mx-auto mb-6">
+            <div class="w-full h-full rounded-full overflow-hidden border-2 border-white">
+              <img src="assets/axel.jpg" alt="Axel Loredo" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">
+            Axel Loredo
+            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1 text-white/60"></i>
+          </h3>
+          <p class="text-[9px] text-white uppercase tracking-[0.2em] font-bold mb-3">Backend &amp; Automatización</p>
+          <div class="w-6 h-px bg-white/10 mx-auto mb-3"></div>
+          <p class="text-bn-muted text-xs font-light leading-relaxed">Lógica de servidor, integraciones y automatización de procesos.</p>
+        </a>
+
+        <a href="https://rica-2000.github.io/" target="_blank" rel="noopener" class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="150">
+          <div class="avatar-ring w-24 h-24 mx-auto mb-6">
+            <div class="w-full h-full rounded-full overflow-hidden border-2" style="border-color: var(--bn-brown-l);">
+              <img src="assets/rica.jpeg" alt="Ricardo Salinas" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">
+            Ricardo Salinas
+            <i class="fa-solid fa-arrow-up-right-from-square text-[9px] ml-1 text-white/60"></i>
+          </h3>
+          <p class="text-[9px] uppercase tracking-[0.2em] font-bold mb-3" style="color: var(--bn-brown-l);">Backend Developer</p>
+          <div class="w-6 h-px bg-white/10 mx-auto mb-3"></div>
+          <p class="text-bn-muted text-xs font-light leading-relaxed">APIs robustas, lógica de negocio y arquitectura del lado del servidor.</p>
+        </a>
+
+        <!--
+        <a href="https://github.com/KevinDon10" target="_blank" rel="noopener" class="card card-corner p-7 text-center block group" data-aos="fade-up" data-aos-delay="200">
+          <div class="avatar-ring w-24 h-24 mx-auto mb-6">
+            <div class="w-full h-full rounded-full overflow-hidden border-2" style="border-color: var(--bn-yellow);">
+              <img src="assets/kevin.jpeg" alt="Kevin Don" class="w-full h-full object-cover">
+            </div>
+          </div>
+          <h3 class="text-base font-bold text-white mb-1">
+            Kevin Don
+            <i class="fa-brands fa-github text-[10px] ml-1 text-white/60"></i>
+          </h3>
+          <p class="text-[9px] text-bn-yellow uppercase tracking-[0.2em] font-bold mb-3">Data &amp; AI Engineer</p>
+          <div class="w-6 h-px bg-white/10 mx-auto mb-3"></div>
+          <p class="text-bn-muted text-xs font-light leading-relaxed">Ciencia de datos, aprendizaje automático e implementaciones de IA.</p>
+        </a>
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section id="process" class="py-32 relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(135deg, transparent 60%, rgba(35, 87, 137, 0.08) 100%);"></div>
+    <div class="max-w-7xl mx-auto px-6 relative">
+
+      <div class="grid md:grid-cols-12 gap-8 mb-16 items-end">
+        <div class="md:col-span-7" data-aos="fade-up">
+          <div class="eyebrow mb-4">04 — Metodología</div>
+          <h2 class="section-title text-4xl md:text-6xl text-white">
+            Un flujo<br>probado, <span class="text-bn-yellow">iterativo</span>.
+          </h2>
+        </div>
+        <div class="md:col-span-5" data-aos="fade-up" data-aos-delay="100">
+          <p class="text-bn-muted text-base leading-relaxed font-light">
+            Cuatro fases. Entregas continuas. Validación constante. Cada etapa minimiza el riesgo y maximiza el valor entregado al negocio.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-white/5">
+        <div class="process-step group border-l-0 lg:border-l border-white/5" data-aos="fade-up">
+          <div class="step-num">01</div>
+          <div class="w-10 h-px bg-bn-yellow my-4 group-hover:w-16 transition-all"></div>
+          <h4 class="font-bold text-lg text-white mb-2 uppercase tracking-wider">Discovery</h4>
+          <p class="text-bn-muted text-sm font-light leading-relaxed">Análisis de requerimientos, objetivos del negocio y definición técnica del alcance.</p>
+        </div>
+        <div class="process-step group border-l border-white/5" data-aos="fade-up" data-aos-delay="100">
+          <div class="step-num" style="color: var(--bn-blue-l);">02</div>
+          <div class="w-10 h-px my-4 group-hover:w-16 transition-all" style="background-color: var(--bn-blue-l);"></div>
+          <h4 class="font-bold text-lg text-white mb-2 uppercase tracking-wider">Diseño</h4>
+          <p class="text-bn-muted text-sm font-light leading-relaxed">Prototipado UI/UX, wireframes interactivos y arquitectura técnica del sistema.</p>
+        </div>
+        <div class="process-step group border-l border-white/5" data-aos="fade-up" data-aos-delay="200">
+          <div class="step-num" style="color: var(--bn-brown-l);">03</div>
+          <div class="w-10 h-px my-4 group-hover:w-16 transition-all" style="background-color: var(--bn-brown-l);"></div>
+          <h4 class="font-bold text-lg text-white mb-2 uppercase tracking-wider">Desarrollo</h4>
+          <p class="text-bn-muted text-sm font-light leading-relaxed">Sprints ágiles con entregas semanales, pruebas automatizadas y revisión continua.</p>
+        </div>
+        <div class="process-step group border-l border-r-0 lg:border-r border-white/5" data-aos="fade-up" data-aos-delay="300">
+          <div class="step-num">04</div>
+          <div class="w-10 h-px bg-bn-yellow my-4 group-hover:w-16 transition-all"></div>
+          <h4 class="font-bold text-lg text-white mb-2 uppercase tracking-wider">Lanzamiento</h4>
+          <p class="text-bn-muted text-sm font-light leading-relaxed">Deploy en infraestructura cloud, monitoreo activo y soporte post-lanzamiento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACTO -->
+  <section id="contact" class="py-32 relative overflow-hidden">
+    <div class="absolute inset-0 bg-blueprint opacity-40 pointer-events-none"></div>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(255, 221, 0, 0.08), transparent 60%);"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+
+      <div class="grid lg:grid-cols-12 gap-12">
+        <!-- Lado izquierdo: pitch -->
+        <div class="lg:col-span-5 space-y-8" data-aos="fade-up">
+          <div class="eyebrow">05 — Contacto</div>
+          <h2 class="section-title text-4xl md:text-6xl text-white">
+            Hablemos de<br>tu <span class="text-bn-yellow">próxima</span><br>idea.
+          </h2>
+          <p class="text-bn-muted text-base leading-relaxed font-light max-w-md">
+            Cuéntanos qué quieres construir. Nosotros ponemos el código, la arquitectura y el equipo para llevarlo a producción.
+          </p>
+
+          <div class="space-y-4 pt-4 border-t border-white/5">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 flex items-center justify-center bg-bn-yellow/10 border border-bn-yellow/20 text-bn-yellow">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <div class="text-[10px] uppercase tracking-[0.2em] text-bn-muted">Escríbenos</div>
+                <div class="text-white text-sm font-medium">bananasdevelopment@gmail.com</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 flex items-center justify-center" style="background-color: rgba(35, 87, 137, 0.15); border: 1px solid rgba(35, 87, 137, 0.3); color: var(--bn-blue-l);">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+              <div>
+                <div class="text-[10px] uppercase tracking-[0.2em] text-bn-muted">Respuesta</div>
+                <div class="text-white text-sm font-medium">En menos de 24 horas</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lado derecho: formulario -->
+        <div class="lg:col-span-7" data-aos="fade-up" data-aos-delay="100">
+          <div class="card p-10 md:p-12">
+            <form action="https://formspree.io/f/xgvglnja" method="POST" class="space-y-7">
+              <div class="grid md:grid-cols-2 gap-7">
+                <div>
+                  <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Nombre</label>
+                  <input type="text" name="name" class="input-underline" placeholder="Tu nombre completo" required>
+                </div>
+                <div>
+                  <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Email</label>
+                  <input type="email" name="email" class="input-underline" placeholder="email@empresa.com" required>
+                </div>
+              </div>
+
+              <div>
+                <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Tipo de proyecto</label>
+                <select name="type" class="input-underline cursor-pointer">
+                  <option>Plataforma Web / SaaS</option>
+                  <option>Aplicación móvil (iOS / Android)</option>
+                  <option>E-Commerce a medida</option>
+                  <option>Integración de IA / Chatbot</option>
+                  <option>Sistema empresarial</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow mb-1 block font-semibold">Detalles del reto</label>
+                <textarea name="message" rows="4" class="input-underline resize-none" placeholder="Describe brevemente qué quieres construir..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary w-full py-5 text-xs uppercase mt-6 inline-flex items-center justify-center gap-3">
+                Enviar solicitud
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 bg-black">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-12 gap-8 mb-12">
+        <div class="md:col-span-5">
+          <div class="flex items-center gap-3 mb-6">
+            <img src="assets/logo.png" alt="Logo" class="h-10 w-auto">
+            <img src="assets/letras.png" alt="BananasDev" class="h-5 w-auto">
+          </div>
+          <p class="text-bn-muted text-sm font-light leading-relaxed max-w-sm">
+            Desarrollo de software a medida. Convertimos problemas operativos en ecosistemas digitales escalables.
+          </p>
+        </div>
+
+        <div class="md:col-span-3">
+          <div class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow font-semibold mb-4">Servicios</div>
+          <ul class="space-y-2 text-sm text-white/60 font-light">
+            <li><a href="#services" class="hover:text-bn-yellow transition">Desarrollo Web</a></li>
+            <li><a href="#services" class="hover:text-bn-yellow transition">Apps móviles</a></li>
+            <li><a href="#services" class="hover:text-bn-yellow transition">Soluciones de IA</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow font-semibold mb-4">Empresa</div>
+          <ul class="space-y-2 text-sm text-white/60 font-light">
+            <li><a href="#team" class="hover:text-bn-yellow transition">Equipo</a></li>
+            <li><a href="#values" class="hover:text-bn-yellow transition">Filosofía</a></li>
+            <li><a href="#process" class="hover:text-bn-yellow transition">Proceso</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-2">
+          <div class="text-[10px] uppercase tracking-[0.25em] text-bn-yellow font-semibold mb-4">Conecta</div>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/60 hover:text-bn-yellow hover:border-bn-yellow transition"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/60 hover:text-bn-yellow hover:border-bn-yellow transition"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-9 h-9 flex items-center justify-center border border-white/10 text-white/60 hover:text-bn-yellow hover:border-bn-yellow transition"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-white/30 text-xs font-light">© 2026 BananasDev. Todos los derechos reservados.</p>
+        <p class="text-white/30 text-[10px] uppercase tracking-[0.3em] font-medium">Hecho con código limpio</p>
+      </div>
+    </div>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-
   <script>
-    AOS.init({ duration: 800, easing: 'ease-out-cubic', once: true, offset: 50 });
-    VanillaTilt.init(document.querySelectorAll(".js-tilt"));
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 80 });
 
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
-        navbar.classList.remove('bg-transparent', 'py-4');
+        navbar.classList.remove('bg-transparent', 'py-5');
       } else {
         navbar.classList.remove('scrolled');
-        navbar.classList.add('bg-transparent', 'py-4');
+        navbar.classList.add('bg-transparent', 'py-5');
       }
     });
   </script>
