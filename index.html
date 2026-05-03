@@ -31,12 +31,63 @@
       --bn-muted:   #9ca3af;
     }
 
+    html { background-color: var(--bn-bg); }
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: var(--bn-bg);
+      background-color: transparent;
       color: var(--bn-white);
       overflow-x: hidden;
       font-weight: 400;
+      position: relative;
+    }
+
+    /* Aurora background blobs (radial-gradient: GPU-friendly, no filter:blur) */
+    .aurora {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+      contain: strict;
+    }
+    .aurora-blob {
+      position: absolute;
+      border-radius: 50%;
+      will-change: transform;
+      transform: translate3d(0, 0, 0);
+    }
+    .aurora-blob.b1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(255, 221, 0, 0.18) 0%, rgba(255, 221, 0, 0) 65%);
+      top: -15%; left: -10%;
+      animation: aurora-drift-1 30s ease-in-out infinite;
+    }
+    .aurora-blob.b2 {
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(35, 87, 137, 0.22) 0%, rgba(35, 87, 137, 0) 65%);
+      bottom: -20%; right: -12%;
+      animation: aurora-drift-2 36s ease-in-out infinite;
+    }
+    .aurora-blob.b3 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(216, 30, 91, 0.13) 0%, rgba(216, 30, 91, 0) 65%);
+      top: 40%; left: 40%;
+      animation: aurora-drift-3 40s ease-in-out infinite;
+    }
+    @keyframes aurora-drift-1 {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(80px, 60px, 0); }
+    }
+    @keyframes aurora-drift-2 {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(-70px, -90px, 0); }
+    }
+    @keyframes aurora-drift-3 {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(60px, -50px, 0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .aurora-blob { animation: none; }
     }
 
     .text-bn-yellow { color: var(--bn-yellow); }
@@ -264,6 +315,12 @@
   </style>
 </head>
 <body class="antialiased">
+
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora-blob b1"></div>
+    <div class="aurora-blob b2"></div>
+    <div class="aurora-blob b3"></div>
+  </div>
 
   <nav id="navbar" class="fixed w-full z-50 bg-transparent py-5">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
