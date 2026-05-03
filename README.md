@@ -3,20 +3,21 @@
   <br />
   <img src="assets/letras.png" alt="BananasDev Texto" height="50" />
 
-  <h1 align="center">BananasDev | Software Solutions</h1>
+  <h1 align="center">BananasDev | Desarrollo de software a medida</h1>
 
   <p align="center">
-    <strong>Transformamos ideas complejas en software de alto rendimiento.</strong>
+    <strong>Convertimos problemas operativos en ecosistemas digitales escalables.</strong>
   </p>
 
   <p align="center">
-    <a href="#-servicios">Servicios</a> •
+    <a href="#-sobre-nosotros">Nosotros</a> •
     <a href="#-stack-tecnológico">Stack</a> •
     <a href="#-el-escuadrón">Equipo</a> •
+    <a href="#-proceso">Proceso</a> •
     <a href="#-contacto">Contacto</a>
   </p>
 
-  [![Website Status](https://img.shields.io/website?down_color=red&down_message=offline&label=System&style=for-the-badge&up_color=success&up_message=online&url=https%3A%2F%2Fbananasdev.com)](https://bananasdev.com)
+  [![Website Status](https://img.shields.io/website?down_color=red&down_message=offline&label=Site&style=for-the-badge&up_color=success&up_message=online&url=https%3A%2F%2Fbananasdevelopment.github.io)](https://bananasdevelopment.github.io)
   ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
   ![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 </div>
@@ -25,13 +26,17 @@
 
 ## 🚀 Sobre Nosotros
 
-**BananasDev** es una agencia de desarrollo de software ágil y moderna. Nos especializamos en crear ecosistemas digitales completos, desde la arquitectura de base de datos hasta la experiencia de usuario final en móviles y web.
+**BananasDev** es un estudio de desarrollo de software a medida. Diseñamos y construimos ecosistemas digitales completos: desde la base de datos y la lógica de servidor, hasta interfaces web reactivas y aplicaciones móviles.
 
-No solo escribimos código; diseñamos soluciones escalables impulsadas por **Inteligencia Artificial** y arquitecturas robustas.
+No solo escribimos código: entregamos **soluciones escalables**, con arquitecturas robustas y aprovechando **Inteligencia Artificial** donde aporta valor real.
+
+## 🧩 Servicios
+
+- **Desarrollo Web** — sitios y plataformas reactivas, performantes y mantenibles.
+- **Apps móviles** — experiencias nativas y multiplataforma con Flutter.
+- **Soluciones de IA** — modelos, automatizaciones y agentes integrados al producto.
 
 ## 🛠 Stack Tecnológico
-
-Utilizamos las herramientas más potentes del mercado para garantizar velocidad y seguridad:
 
 | Área | Tecnologías |
 | :--- | :--- |
@@ -43,23 +48,33 @@ Utilizamos las herramientas más potentes del mercado para garantizar velocidad 
 
 ## 👥 El Escuadrón
 
-Nuestro equipo multidisciplinario está listo para cualquier reto:
+Equipo multidisciplinario de ingenieros. Cada uno aporta una especialidad, todos comparten un estándar.
 
-| Rol | Miembro | Especialidad |
-| :--- | :--- | :--- |
-| **CEO & Lead Architect** | 👑 **Alexis Reynaga** | Arquitectura de Software, Estrategia & Full Stack. |
-| **Senior Backend Dev** | 🛡️ **Luis Rodriguez** | Laravel, Bases de Datos & Seguridad. |
-| **Full-Stack Developer** | 💻 **Axel Loredo** | Desarrollo Integral, Stack MERN/MEAN & UI/UX. |
-| **Mobile Specialist** | 📱 **Ricardo Salinas** | Desarrollo Nativo iOS/Android con Flutter. |
-| **AI & Data Engineer** | 🤖 **Kevin Don** | Machine Learning, Python & Chatbots. |
+| Miembro | Rol | Especialidad | Portafolio |
+| :--- | :--- | :--- | :--- |
+| **Alexis Reynaga** | Frontend & Deploy | Interfaces reactivas, despliegue cloud e infraestructura. | [alexisreynaga.github.io](https://alexisreynaga.github.io/) |
+| **Luis Rodriguez** | Data Analyst & DB | Análisis de datos, modelado y administración de bases de datos. | — |
+| **Axel Loredo** | Backend & Automatización | Lógica de servidor, integraciones y automatización de procesos. | [siraxlord.github.io](https://siraxlord.github.io) |
+| **Ricardo Salinas** | Backend Developer | APIs robustas, lógica de negocio y arquitectura del lado del servidor. | [rica-2000.github.io](https://rica-2000.github.io/) |
+
+## 🔄 Proceso
+
+Cuatro fases. Entregas continuas. Validación constante.
+
+1. **Discovery** — análisis de requerimientos, objetivos del negocio y definición técnica del alcance.
+2. **Diseño** — prototipado UI/UX, wireframes interactivos y arquitectura del sistema.
+3. **Desarrollo** — sprints ágiles con entregas semanales, pruebas automatizadas y revisión continua.
+4. **Lanzamiento** — deploy en infraestructura cloud, monitoreo activo y soporte post-lanzamiento.
 
 ## 📬 Contacto
 
-¿Tienes un proyecto en mente? ¡Hablemos!
+¿Tienes un proyecto en mente? Respondemos en menos de 24 horas.
 
 * 📧 **Email:** bananasdevelopment@gmail.com
-* 💼 **LinkedIn:** [BananasDev](https://linkedin.com)
-* 🌐 **Web:** [bananasdev.com](https://bananasdevelopment.github.io/)
+* 🌐 **Web:** [bananasdevelopment.github.io](https://bananasdevelopment.github.io/)
 
 ---
+
 <p align="center">
+  Hecho con código limpio · © 2026 BananasDev
+</p>
